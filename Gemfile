@@ -49,7 +49,7 @@ gem 'kaminari'
 gem 'dalli'
 gem 'whenever'
 group :development, :test do
-  gem "rspec-rails", "~> 3.0.0"
+  gem "rspec-rails", "~> 3.0.0.beta2"
   gem "rake_shared_context"
   gem "simplecov", require: false
   gem "simplecov-rcov", require: false
