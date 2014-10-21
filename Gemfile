@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
-
+ruby '2.1.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.6'
+gem 'rails', '~> 4.1'
 # Use sqlite3 as the database for Active Record
-group :development, :test do
-  gem 'sqlite3'
+group :developmnt, :test do
+  gem 'sqlite3' , '1.3.7'
+
 end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -40,7 +41,6 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-
 gem 'omniauth-twitter'
 gem 'json', '1.8.0'
 gem 'json_pure', '1.5.3'
@@ -48,28 +48,46 @@ gem 'iconv'
 gem 'kaminari'
 gem 'dalli'
 gem 'whenever'
+
+# テスト関連
 group :development, :test do
-  gem "rspec-rails", "~> 3.0.0.beta2"
-  gem "rake_shared_context"
-  gem "simplecov", require: false
-  gem "simplecov-rcov", require: false
-  gem "rubocop", '~>0.23', require: false
-  gem "rubocop-checkstyle_formatter", require: false
-  gem "factory_girl_rails"
-  gem "shoulda-matchers"
-  gem "database_rewinder"
-  gem "coveralls", require: false
-  gem "request_store"
-  gem "rubocop", "~> 0.23", require: false
-#  gem "rails_best_practices"
-  gem "guard"
-  gem "guard-rspec", "~> 0.4.2"
-  gem "guard-spring"
-  gem "guard-rubocop"
-  gem "terminal-notifier-guard"
-  gem "parallel_tests"
-  gem "rubycritic", require: false
-  gem "brakeman", require: false
+  gem 'spring-commands-rspec'
+  gem 'rspec-rails', '~> 3.0.0'
+  gem 'rake_shared_context'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
+  gem 'database_rewinder'
+
+# コードカバレッジ
+  gem 'simplecov', require: false
+  gem 'simplecov-rcov', require: false
+
+  gem 'coveralls', require: false
+  gem 'request_store'
+
+# コーディング規約チェック
+  gem 'rubocop', '~> 0.23',  require: false
+  gem 'rubocop-checkstyle_formatter', require: false
+
+# 良い書き方しているかチェック
+  gem 'rails_best_practices'
+
+  # テスト、コードチェックを自動で別プロセスでやる
+  gem 'guard'
+  gem 'guard-rspec', '~> 0.4.2'
+  gem 'guard-spring'
+  gem 'guard-rubocop'
+  gem 'terminal-notifier-guard'
+  gem 'parallel_tests'
+  gem 'rake_shared_context'
+
+  # プロファイリング
+  # gem 'stackprof'
+  # gem 'stackprof-webnav'
+
+  # 静的解析
+  # gem 'rubycritic', :require => false
+  # gem 'brakeman', require: false
 end
 
 group :development do
@@ -111,3 +129,4 @@ end
 
 gem "heroku"
 gem "puma"
+

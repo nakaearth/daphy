@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe JobCard, :type => :model do
-  let!(:user) { create(:user) }
-  let!(:job_card) { create_list(:job_card, 4, user: user) }
+  let!(:group) { create(:group) }
+  let!(:user) { create(:user, group: group) }
+  let!(:job_card) { create_list(:job_card, 4, user: user, group: group) }
 
   describe '幾つかのテーブルと関連を持っている' do
     context 'have a relation to user class' do
