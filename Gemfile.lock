@@ -85,8 +85,6 @@ GEM
     cloudinary (1.0.77)
       aws_cf_signer
       rest-client
-    code_analyzer (0.4.5)
-      sexp_processor
     coderay (1.1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -97,7 +95,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
-    colored (1.2)
     columnize (0.8.9)
     coveralls (0.7.1)
       multi_json (~> 1.3)
@@ -188,7 +185,6 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.0)
-    json_expressions (0.8.3)
     json_pure (1.5.3)
     kaminari (0.16.1)
       actionpack (>= 3.0.0)
@@ -209,7 +205,6 @@ GEM
     multi_json (1.10.1)
     multi_xml (0.5.5)
     netrc (0.8.0)
-    newrelic_rpm (3.9.6.257)
     nio4r (0.5.0)
     oauth (0.4.7)
     omniauth (1.2.2)
@@ -233,9 +228,6 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    pry-byebug (2.0.0)
-      byebug (~> 3.4)
-      pry (~> 0.10)
     pry-doc (0.6.0)
       pry (~> 0.9)
       yard (~> 0.8)
@@ -263,16 +255,6 @@ GEM
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
-    rails_best_practices (1.15.4)
-      activesupport
-      awesome_print
-      code_analyzer (>= 0.4.3)
-      colored
-      erubis
-      i18n
-      json
-      require_all
-      ruby-progressbar
     rails_serve_static_assets (0.0.2)
     rails_stdout_logging (0.0.3)
     railties (4.1.6)
@@ -296,7 +278,6 @@ GEM
       ruby_parser (~> 3.3)
       sexp_processor
     request_store (1.1.0)
-    require_all (1.3.2)
     rest-client (1.7.2)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
@@ -461,15 +442,12 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   json (= 1.8.0)
-  json_expressions
   json_pure (= 1.5.3)
   kaminari
-  newrelic_rpm
   nio4r (= 0.5.0)
   omniauth-twitter
   parallel_tests
   pg
-  pry-byebug
   pry-doc
   pry-rails
   puma
@@ -477,7 +455,6 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.1.6)
   rails_12factor
-  rails_best_practices
   rake-compiler
   rake_shared_context
   request_store
