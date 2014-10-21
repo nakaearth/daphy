@@ -57,12 +57,11 @@ group :development, :test do
   gem "rubocop-checkstyle_formatter", require: false
   gem "factory_girl_rails"
   gem "shoulda-matchers"
-  gem "json_expressions"
   gem "database_rewinder"
   gem "coveralls", require: false
   gem "request_store"
   gem "rubocop", "~> 0.23", require: false
-  gem "rails_best_practices"
+#  gem "rails_best_practices"
   gem "guard"
   gem "guard-rspec", "~> 0.4.2"
   gem "guard-spring"
@@ -75,7 +74,6 @@ end
 
 group :development do
   gem "pry-rails"
-  gem "pry-byebug"
   gem "pry-doc"
   gem "awesome_print"
   gem "better_errors"
@@ -86,7 +84,6 @@ end
 gem "annotate", git: "https://github.com/ctran/annotate_models"
 gem "td"
 gem "td-logger"
-gem "newrelic_rpm"
 gem "watson-ruby"
 gem "cache_digests"
 gem "versioncake"

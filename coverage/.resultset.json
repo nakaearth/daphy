@@ -1,0 +1,25 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/usr/local/project/daphy/app/models/user.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/usr/local/project/daphy/app/models/job_card.rb": [
+        1,
+        1,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1413886439
+  }
+}
