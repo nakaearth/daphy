@@ -1,2 +1,0 @@
-class TodoJobCard < JobCard
-end

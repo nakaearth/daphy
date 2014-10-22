@@ -1,0 +1,2 @@
+class Doing < JobCard
+end

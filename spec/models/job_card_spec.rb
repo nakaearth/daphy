@@ -24,11 +24,11 @@ describe JobCard, type: :model do
   describe 'Type毎の登録を確認' do
     context 'todoの場合' do
       before do
-        @todo = TodoJobCard.create(title: 'テスト', description: 'これはテスト', point: 1,  user: user, group: group)
+        @todo = Todo.create(title: 'テスト', description: 'これはテスト', point: 1,  user: user, group: group)
       end
 
       it 'typekカラムにtodoがセットされている' do
-        expect(@todo.type).to eq('TodoJobCard')
+        expect(@todo.type).to eq('Todo')
       end
     end
   end
