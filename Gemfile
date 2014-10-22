@@ -51,7 +51,7 @@ gem 'whenever'
 # テスト関連
 group :development, :test do
   gem 'spring-commands-rspec'
-  gem 'rspec-rails', '~> 3.0.0'
+  gem 'rspec-rails', '~> 3.1'
   gem 'rake_shared_context'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
@@ -73,7 +73,8 @@ group :development, :test do
 
   # テスト、コードチェックを自動で別プロセスでやる
   gem 'guard'
-  gem 'guard-rspec', '~> 0.4.2'
+  # gem 'guard-rspec', '~> 0.4.2'
+  gem 'guard-rspec'
   gem 'guard-spring'
   gem 'guard-rubocop'
   gem 'terminal-notifier-guard'

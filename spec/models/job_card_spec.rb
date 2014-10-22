@@ -9,11 +9,27 @@ describe JobCard, type: :model do
     context 'have a relation to user class' do
       it { expect belong_to(:users) }
     end
+
+    context 'have a relation to group class' do
+      it { expect belong_to(:groups) }
+    end
   end
 
   describe '入力チェックをする' do
     context 'titleは必須' do
       it { expect validate_presence_of(:title) }
+    end
+  end
+
+  describe 'Type毎の登録を確認' do
+    context 'todoの場合' do
+      before do
+        @todo = TodoJobCard.create(title: 'テスト', description: 'これはテスト', point: 1,  user: user, group: group)
+      end
+
+      it 'typekカラムにtodoがセットされている' do
+        expect(@todo.type).to eq('TodoJobCard')
+      end
     end
   end
 end
