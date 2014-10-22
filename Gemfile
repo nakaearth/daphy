@@ -5,8 +5,7 @@ ruby '2.1.3'
 gem 'rails', '~> 4.1'
 # Use sqlite3 as the database for Active Record
 group :developmnt, :test do
-  gem 'sqlite3' , '1.3.7'
-
+  gem 'sqlite3', '1.3.7'
 end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -58,18 +57,18 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'database_rewinder'
 
-# コードカバレッジ
+  # コードカバレッジ
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
 
   gem 'coveralls', require: false
   gem 'request_store'
 
-# コーディング規約チェック
+  # コーディング規約チェック
   gem 'rubocop', '~> 0.23',  require: false
   gem 'rubocop-checkstyle_formatter', require: false
 
-# 良い書き方しているかチェック
+  # 良い書き方しているかチェック
   gem 'rails_best_practices'
 
   # テスト、コードチェックを自動で別プロセスでやる
@@ -129,4 +128,3 @@ end
 
 gem "heroku"
 gem "puma"
-

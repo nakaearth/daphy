@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe JobCard, :type => :model do
+describe JobCard, type: :model do
   let!(:group) { create(:group) }
   let!(:user) { create(:user, group: group) }
   let!(:job_card) { create_list(:job_card, 4, user: user, group: group) }
@@ -16,5 +16,4 @@ RSpec.describe JobCard, :type => :model do
       it { expect validate_presence_of(:title) }
     end
   end
-
 end
