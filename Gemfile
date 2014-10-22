@@ -57,6 +57,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'database_rewinder'
+  gem 'rake_shared_context'
 
 # コードカバレッジ
   gem 'simplecov', require: false
@@ -71,23 +72,22 @@ group :development, :test do
 
 # 良い書き方しているかチェック
   gem 'rails_best_practices'
+  # プロファイリング
+  # gem 'stackprof'
+  # gem 'stackprof-webnav'
 
+  # 静的解析
+  gem 'rubycritic', :require => false
+  gem 'brakeman', require: false
+end
+
+group :development do
   # テスト、コードチェックを自動で別プロセスでやる
   gem 'guard'
   gem 'guard-rspec', '~> 0.4.2'
   gem 'guard-spring'
   gem 'guard-rubocop'
   gem 'terminal-notifier-guard'
-  gem 'parallel_tests'
-  gem 'rake_shared_context'
-
-  # プロファイリング
-  # gem 'stackprof'
-  # gem 'stackprof-webnav'
-
-  # 静的解析
-  # gem 'rubycritic', :require => false
-  # gem 'brakeman', require: false
 end
 
 group :development do
@@ -111,7 +111,7 @@ gem "rmagick"
 gem "cloudinary"
 group :test do
   gem "byebug"
-  gem "nio4r", "0.5.0"
+  # gem "nio4r", "0.5.0"
   gem "rake-compiler"
 end
 
