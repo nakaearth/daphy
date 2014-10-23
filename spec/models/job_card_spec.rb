@@ -37,5 +37,15 @@ describe JobCard, type: :model do
         expect(@todo.type).to eq('Todo')
       end
     end
+
+    context 'doingの場合' do
+      before do
+        @doing = Doing.create(title: 'テストdoing', description: 'これもテスト', point: 2, user:user, group: group)
+      end
+
+      it 'typekカラムにtodoがセットされている' do
+        expect(@doing.type).to eq('Doing')
+      end
+    end
   end
 end
