@@ -3,5 +3,5 @@ class JobCard < ActiveRecord::Base
   belongs_to :group
 
   validates :title, presence: true, length: { maximum: 80 }
-  validates :point, presence: true
+  validates :point, presence: true, numericality: true
 end

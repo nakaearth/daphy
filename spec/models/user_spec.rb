@@ -11,23 +11,26 @@ describe User, type: :model do
   end
 
   describe '入力チェックをする' do
-    context 'nameは必須' do
+    context 'nameカラム' do
       it { expect validate_presence_of(:name) }
+      it { expect ensure_length_of(:name).is_at_most(60) }
     end
 
-    context 'emailは必須' do
+    context 'emailカラム' do
       it { expect validate_presence_of(:email) }
+      it { expect ensure_length_of(:email).is_at_most(60) }
     end
 
-    context 'providerは必須' do
+    context 'providerカラム' do
       it { expect validate_presence_of(:provider) }
+      it { expect ensure_length_of(:email).is_at_most(10) }
     end
 
-    context 'access_tokenは必須' do
+    context 'access_tokenカラム' do
       it { expect validate_presence_of(:access_token) }
     end
 
-    context 'secret_tokenは必須' do
+    context 'secret_tokenカラム' do
       it { expect validate_presence_of(:secret_token) }
     end
   end

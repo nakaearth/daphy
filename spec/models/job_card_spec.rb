@@ -16,8 +16,14 @@ describe JobCard, type: :model do
   end
 
   describe '入力チェックをする' do
-    context 'titleは必須' do
+    context 'title' do
       it { expect validate_presence_of(:title) }
+      it { expect ensure_length_of(:title).is_at_most(60) }
+    end
+
+    context 'point' do
+      it { expect validate_presence_of(:point) }
+      it { expect validate_numericality_of(:point) }
     end
   end
 
