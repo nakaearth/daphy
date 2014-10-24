@@ -1,0 +1,2 @@
+module Daphy::JobsHelper
+end
