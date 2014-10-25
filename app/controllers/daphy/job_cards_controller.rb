@@ -1,4 +1,4 @@
-class Daphy::JobsController < ApplicationController
+class Daphy::JobCardsController < ApplicationController
   def index
     @todos = Todo.all
     @doings = Doing.all

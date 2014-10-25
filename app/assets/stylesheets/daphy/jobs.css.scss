@@ -8,6 +8,7 @@ div#job_list {
   border: 2px solid #333333;
   background-color: #FFFFFF;
   vertical-align: text-top;
+  width: 900px;
   height: 1000px;
   overflow: visible;  
   padding: 10px;
@@ -46,7 +47,7 @@ div#job_list {
   -moz-border-radius: 10px;/* Firefox */
 }
 
-@mixin job_status(status) {
+@mixin job_status($status) {
   @if $status == 'todo' {
     font-size: 9px;
     background-color: #67BA37;
@@ -67,11 +68,11 @@ div#job_list {
   }
 }
 
-.job_status_todo { @include movie_status('todo'); }
-.job_status_doing { @include movie_status('doing'); }
-.job_status_done { @include movie_category('done'); }
-.job_status_pending { @include movie_category('pending'); }
-.job_status_icebox { @include movie_category('icebox'); }
+.job_status_todo { @include job_status('todo'); }
+.job_status_doing { @include job_status('doing'); }
+.job_status_done { @include job_status('done'); }
+.job_status_pending { @include job_status('pending'); }
+.job_status_icebox { @include job_status('icebox'); }
 
 .job_detail {
   position: relative;
