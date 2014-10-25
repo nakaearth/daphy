@@ -129,3 +129,6 @@ end
 
 gem "heroku"
 gem "puma"
+
+# css fremework compass
+gem 'compass-rails'

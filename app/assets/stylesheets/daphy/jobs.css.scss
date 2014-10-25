@@ -1,3 +1,105 @@
-// Place all the styles related to the daphy/jobs controller here.
+// Place all the styles related to the koremita/jobs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+div#job_list {
+  position: relative;
+  text-align: left;
+  font-weight: bold;
+  border: 2px solid #333333;
+  background-color: #FFFFFF;
+  vertical-align: text-top;
+  height: 1000px;
+  overflow: visible;  
+  padding: 10px;
+  margin: 10px;
+  z-index: 1;
+  -webkit-border-radius: 10px;/* Safari、Google Chrome */
+  -moz-border-radius: 10px;/* Firefox */
+}
+.job {
+  background-color: #FFFFDB;
+  border: 1px solid #333333;
+  font-size: 10pt;
+  width: 400px;
+  margin: 3px;
+  float: left;
+  cursor: move;
+  padding: 5px;
+  margin: 5px;
+  -webkit-border-radius: 10px;/* Safari、Google Chrome */
+  -moz-border-radius: 10px;/* Firefox */
+}
+.job_form {
+   position: relative;
+  text-align: left;
+  font-weight: bold;
+  border: 2px solid #333333;
+  background-color: #FFFFFF;
+  vertical-align: text-top;
+  width: 500px;
+  height: 700px;
+  overflow: visible;  
+  padding: 70px;
+  margin: 80px;
+  z-index: 1;
+  -webkit-border-radius: 10px;/* Safari、Google Chrome */
+  -moz-border-radius: 10px;/* Firefox */
+}
+
+@mixin job_status(status) {
+  @if $status == 'todo' {
+    font-size: 9px;
+    background-color: #67BA37;
+  }@else if $status == 'doing' {
+    font-size: 9px;
+    background-color: #9DB1FF;
+  }@else if $status == 'done' {
+    font-size: 9px;
+    background-color: #FF3333;
+  }@else if $status == 'pending' {
+    font-size: 9px;
+    background-color: #FFCCFF;
+  }@else if $status == 'icebox' {
+    font-size: 9px;
+    background-color: #0000BB;
+  }@else {
+    font-size: 9px;
+  }
+}
+
+.job_status_todo { @include movie_status('todo'); }
+.job_status_doing { @include movie_status('doing'); }
+.job_status_done { @include movie_category('done'); }
+.job_status_pending { @include movie_category('pending'); }
+.job_status_icebox { @include movie_category('icebox'); }
+
+.job_detail {
+  position: relative;
+  text-align: left;
+  font-weight: bold;
+  border: 2px solid #333333;
+  background-color: #FFFFFF;
+  vertical-align: text-top;
+  overflow: visible;
+  padding: 70px;
+  margin: 80px;
+  z-index: 1;
+  -webkit-border-radius: 10px;/* Safari、Google Chrome */
+  -moz-border-radius: 10px;/* Firefox */
+}
+
+.job_comment_list {
+  text-align: left;
+  font-weight: bold;
+  border: 2px solid #333333;
+  background-color: #FFFFFF;
+  vertical-align: text-top;
+  overflow: visible;
+  .comment {
+    background-color: #FFFFDB;
+    border: 1px solid #333333;
+    font-size: 10pt;
+    width: 400px;
+    margin: 3px;    
+  } 
+}
