@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Daphy::JobsController, :type => :controller do
+RSpec.describe Daphy::JobCardsController, :type => :controller do
 
   describe "GET index" do
     it "returns http success" do
@@ -23,6 +23,7 @@ RSpec.describe Daphy::JobsController, :type => :controller do
     end
   end
 
+<<<<<<< HEAD
   describe "GET show" do
     it "returns http success" do
       get :show
@@ -30,4 +31,6 @@ RSpec.describe Daphy::JobsController, :type => :controller do
     end
   end
 
+=======
+>>>>>>> origin/master
 end
