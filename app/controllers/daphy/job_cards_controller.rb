@@ -1,6 +1,6 @@
 module Daphy
   class JobCardsController < ApplicationController
-    before_action :set_event, only: [:show, :edit]
+    before_action :set_job_card, only: [:show, :edit]
 
     def index
       @todos = Todo.all
@@ -22,7 +22,7 @@ module Daphy
     private
 
     def set_job_card
-      @job = JobCard.find(params[:id])
+      @job = JobCard.where(id: params[:id], type: params[:type])
     end
   end
 end
