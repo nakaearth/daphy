@@ -41,7 +41,7 @@ describe JobCard, type: :model do
 
     context 'doingの場合' do
       before do
-        @doing = Doing.new(title: 'テストdoing', description: 'これもテスト', point: 2, user:user, group: group)
+        @doing = Doing.new(title: 'テストdoing', description: 'これもテスト', point: 2, user: user, group: group)
         @doing.save(context: :doing)
       end
 
@@ -52,7 +52,7 @@ describe JobCard, type: :model do
 
     context 'doneの場合' do
       before do
-        @done = Done.new(title: 'テストdoing', description: 'これもテスト', point: 2, user:user, group: group)
+        @done = Done.new(title: 'テストdoing', description: 'これもテスト', point: 2, user: user, group: group)
         @done.save(context: :done)
       end
 
@@ -60,6 +60,6 @@ describe JobCard, type: :model do
         expect(@done.type).to eq('Done')
       end
     end
- 
+
   end
 end

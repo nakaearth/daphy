@@ -2,13 +2,13 @@ class JobCard < ActiveRecord::Base
   belongs_to :user
   belongs_to :group
 
-  with_options on: :todo do |todo|
+  with_options on: :todo do
     validates :title, presence: true, length: { maximum: 80 }
     validates :description, length: { maximum: 256 }
     validates :point, presence: true, numericality: true
   end
 
-  with_options on: :doing do |doing|
+  with_options on: :doing do
     validates :title, presence: true, length: { maximum: 80 }
     validates :description, length: { maximum: 256 }
   end

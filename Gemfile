@@ -76,7 +76,7 @@ group :development, :test do
   # gem 'stackprof-webnav'
 
   # 静的解析
-  gem 'rubycritic', :require => false
+  gem 'rubycritic', require: false
   gem 'brakeman', require: false
 end
 
@@ -117,7 +117,6 @@ end
 
 gem "pundit"
 gem "font-awesome-rails"
-gem "twitter-bootstrap-rails"
 gem "gon"
 group :production do
   gem "pg"

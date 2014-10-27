@@ -1,2 +1,4 @@
-module Daphy::JobsHelper
+module Daphy
+  class JobsHelper
+  end
 end
