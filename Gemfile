@@ -80,11 +80,11 @@ group :development, :test do
   gem 'brakeman', require: false
 end
 
-group :development do
+group :development, :test do
   # テスト、コードチェックを自動で別プロセスでやる
   gem 'guard'
-  # gem 'guard-rspec', '~> 0.4.2'
-  gem 'guard-rspec'
+  gem 'guard-rspec', '~> 0.4.2'
+  # gem 'guard-rspec'
   gem 'guard-spring'
   gem 'guard-rubocop'
   gem 'terminal-notifier-guard'

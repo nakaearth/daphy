@@ -16,7 +16,6 @@ module Daphy
     end
 
     def show
-
     end
 
     private

@@ -5,9 +5,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    # auth  = request.env["omniauth.auth"]
-    # user = User.find_user_by_provider_and_uid || service.create_account
-    # session[:user_id] = user.id
+    auth  = request.env['omniauth.auth']
+    user = User.find_by(provider: 'twitter', email: auth[:info][:email]) || User.create_account(auth)
+
+    session[:user_id] = user.id
     logger.info user
     redirect_to controller: 'top', action: 'index', notice: 'login successfully.'
   end
