@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
     session[:user_id] = user.id
     logger.info user
-    redirect_to controller: 'top', action: 'index', notice: 'login successfully.'
+    redirect_to controller: 'daphy/job_cards', action: 'index', notice: 'login successfully.'
   end
 
   def destroy
