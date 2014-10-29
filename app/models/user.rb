@@ -5,8 +5,6 @@ class User < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 60 }
   validates :email, presence: true, length: { maximum: 60 }
   validates :provider, presence: true, length: { maximum: 10 }
-  validates :access_token, presence: true
-  validates :secret_token, presence: true
 
   def self.create_account(auth)
     @login_user = User.find_or_create_by(email: auth[:info][:email]) do |user|
@@ -26,6 +24,7 @@ class User < ActiveRecord::Base
       end
       user.group_id = 0
     end
+    @login_user.save!
     @login_user
   end
 end

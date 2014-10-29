@@ -25,14 +25,6 @@ describe User, type: :model do
       it { expect validate_presence_of(:provider) }
       it { expect ensure_length_of(:email).is_at_most(10) }
     end
-
-    context 'access_tokenカラム' do
-      it { expect validate_presence_of(:access_token) }
-    end
-
-    context 'secret_tokenカラム' do
-      it { expect validate_presence_of(:secret_token) }
-    end
   end
 
   describe 'twitter登録処理を追加' do

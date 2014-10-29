@@ -3,9 +3,9 @@ module Daphy
     before_action :set_job_card, only: [:show, :edit]
 
     def index
-      @todos = Todo.all
-      @doings = Doing.all
-      @dones = Done.all
+      @todos = current_user.my_job_cards.where(type: 'Todo')
+      @doings = current_user.my_job_cards.where(type: 'Doing')
+      @dones = current_user.my_job_cards.where(type: 'Done')
     end
 
     def new
