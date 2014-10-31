@@ -13,5 +13,8 @@ class JobCard < ActiveRecord::Base
     validates :description, length: { maximum: 256 }
   end
 
-  scope :latest, -> { order(id: :desc) }
+  default_scope { order(id: :desc) }
+  scope :todos, -> { where(type: 'Todo') }
+  scope :doings, -> { where(type: 'Doing') }
+  scope :dones, -> { where(type: 'Done') }
 end
