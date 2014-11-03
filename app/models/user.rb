@@ -7,6 +7,6 @@ class User < ActiveRecord::Base
   validates :provider, presence: true, length: { maximum: 10 }
 
   def self.create_account(auth)
-    @login_user = Users::Registration.new.regist auth
+    Users::Registration.new.regist auth
   end
 end
