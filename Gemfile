@@ -82,9 +82,9 @@ end
 
 group :development, :test do
   # テスト、コードチェックを自動で別プロセスでやる
-  gem 'guard'
-  gem 'guard-rspec', '~> 0.4.2'
-  # gem 'guard-rspec'
+  gem 'guard', '~> 2.8'
+  # gem 'guard-rspec', '~> 0.4.2'
+  gem 'guard-rspec'
   gem 'guard-spring'
   gem 'guard-rubocop'
   gem 'terminal-notifier-guard'

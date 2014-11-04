@@ -42,7 +42,7 @@
   -moz-border-radius: 10px;/* Firefox */
 }
 .job_form {
-   position: relative;
+  position: relative;
   text-align: left;
   font-weight: bold;
   border: 2px solid #333333;
@@ -54,6 +54,7 @@
   padding: 70px;
   margin: 80px;
   z-index: 1;
+  display: none;
   -webkit-border-radius: 10px;/* Safari、Google Chrome */
   -moz-border-radius: 10px;/* Firefox */
 }

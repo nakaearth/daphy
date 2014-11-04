@@ -2,13 +2,13 @@
 <%= render 'form' %>
 <hr/>
 <div class='job_board'>
-  <div class='job_list'>
+  <div class='job_list' id='todo_list'>
     TODO:<%= render @todos %>
   </div>
-  <div class='job_list'>
+  <div class='job_list' id='doing_list'>
     DOING:<%= render @doings %>
   </div>
-  <div class='job_list'>
+  <div class='job_list' id='done_list'>
     DONE:<%= render @dones %>
   </div>
 </div>

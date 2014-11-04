@@ -38,7 +38,6 @@ module Daphy
 
     def todo_params
       params.require(:job_card).permit(:title, :description) if params[:job_card]
-
     end
   end
 end
