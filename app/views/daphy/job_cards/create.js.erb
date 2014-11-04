@@ -1,2 +1,2 @@
-$( 'job_form' ).fadeOut("slow");
-$('todo_list' ).append('job_card_#{@todo.id}); 
+$('job_form').hide();
+$('todo_list' ).append('<%= j render(@todo) %>').fadeIn(5000); 
