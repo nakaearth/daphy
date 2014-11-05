@@ -126,8 +126,11 @@ group :production do
   gem "puma"
 end
 
-gem "heroku"
-gem "puma"
+# heroku連携
+gem 'heroku'
+gem 'puma'
+# travis連携
+gem 'travis'
 
 # css fremework compass
 gem 'compass-rails'
