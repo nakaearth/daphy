@@ -1,4 +1,5 @@
 <%= flash[:notice] %>
+<div id="form"/>
 <%= render 'form' %>
 <hr/>
 <div class='job_board'>
@@ -12,9 +13,3 @@
     DONE:<%= render @dones %>
   </div>
 </div>
-<script  text/type='javascript'>
-  $("#regist_link a").click(function() {
-      alert('hoge');
-        $("#job_form" ).show();
-      });
-</script>
