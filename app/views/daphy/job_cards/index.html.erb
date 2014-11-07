@@ -1,15 +1,13 @@
 <%= flash[:notice] %>
-<div id="form"/>
-<%= render 'form' %>
 <hr/>
 <div class='job_board'>
   <div class='job_list' id='todo_list'>
-    TODO:<%= render @todos %>
+    TODO:<%= render partial: 'job_card', collection:  @todos %>
   </div>
   <div class='job_list' id='doing_list'>
-    DOING:<%= render @doings %>
+    DOING:<%= render partial: 'job_card', collection: @doings %>
   </div>
   <div class='job_list' id='done_list'>
-    DONE:<%= render @dones %>
+    DONE:<%= render partial: 'job_card', collection: @dones %>
   </div>
 </div>
