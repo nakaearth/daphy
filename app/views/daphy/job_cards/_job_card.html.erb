@@ -7,3 +7,29 @@
   <br/>
   <%= job_card.created_at %>
 </div>
+
+<script type='text/javascript'>
+  $("#job_card_<%=job_card.id %>").draggable({
+    snapMode: 'inner',
+    containment: '#job_board',
+    revert: 'true',
+
+//    drag: function(event, ui) {
+//        @dragged_id = $(".job_list").attr("id")
+//    }
+    stop: function(event, ui) {
+//      alert("id:" + @draggaed_id)
+      $.ajax({
+        type:"PATCH",
+        url:"/daphy/job_cards/<%= job_card.id %>/change_type?type=",
+        contentType:'application/json',
+        dataType:'json',
+ 
+        // In case that an error happens, capture it and show the details.
+        error:function (xhr, msg, error) {
+          alert(msg + ": " + error);
+        }
+      })
+     }
+   })
+</script>

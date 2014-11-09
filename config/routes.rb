@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   get "/auth/failure" => "sessions#failuer"
 
   namespace :daphy do
-    resources :job_cards
+    resources :job_cards do
+      member do
+        patch 'change_type'
+      end
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

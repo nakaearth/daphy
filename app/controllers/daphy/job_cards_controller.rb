@@ -1,6 +1,6 @@
 module Daphy
   class JobCardsController < ApplicationController
-    before_action :set_job_card, only: [:show, :edit]
+    before_action :set_job_card, only: [:show, :edit, :update]
 
     def index
       @todos = current_user.my_job_cards.todos.page(1).per(20)
@@ -25,6 +25,17 @@ module Daphy
     end
 
     def edit
+    end
+
+    def update
+      @job_card.type = params[:type]
+      @job_card.save!
+    end
+
+    def change_type
+      p request.url
+      @job_card.type = params[:type]
+      @job_card.save!
     end
 
     def show

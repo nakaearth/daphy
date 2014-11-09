@@ -1,6 +1,6 @@
 <%= flash[:notice] %>
 <hr/>
-<div class='job_board'>
+<div class='job_board' id='job_board'>
   <div class='job_list' id='todo_list'>
     TODO:<%= render partial: 'job_card', collection:  @todos %>
   </div>
@@ -11,3 +11,25 @@
     DONE:<%= render partial: 'job_card', collection: @dones %>
   </div>
 </div>
+<script type='text/javascript'>
+  $( "#todo_list" ).droppable({
+    accept: ".job_card",
+    drop: function(event, ui) {
+      alert('drop');
+     }
+  });
+
+  $( "#doing_list" ).droppable({
+    accept: ".job_card",
+    drop: function(event, ui) {
+      alert('drop');
+    }
+  });
+
+  $( "#done_list" ).droppable({
+    accept: ".job_card",
+    drop: function(event, ui) {
+      alert('drop');
+    }
+  });
+</script>
