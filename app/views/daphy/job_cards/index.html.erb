@@ -15,14 +15,17 @@
   $( "#todo_list" ).droppable({
     accept: ".job_card",
     drop: function(event, ui) {
+      $(this).addClass( "ui-state-highlight" )
+        .find( "div" )
+        .html( "ドロップされました!" );
       alert('drop');
      }
   });
 
-  $( "#doing_list" ).droppable({
-    accept: ".job_card",
+  $("#doing_list").droppable({
     drop: function(event, ui) {
-      alert('drop');
+      $(this).html($(this).html() +
+              ui.draggable.text() + 'がドロップされました。<br />');
     }
   });
 
