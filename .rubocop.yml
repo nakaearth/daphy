@@ -43,5 +43,6 @@ ClassLength:
 # 循環的複雑度が高すぎる(ifやforなどを1メソッド内で使いすぎている)
 CyclomaticComplexity:
   Enabled: false
+
 Metrics/AbcSize:
-   Max: 38
+  Max: 38
