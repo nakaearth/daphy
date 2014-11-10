@@ -52,7 +52,7 @@ gem 'whenever'
 # テスト関連
 group :development, :test do
   gem 'spring-commands-rspec'
-  gem 'rspec-rails', '~> 3.1'
+  gem 'rspec-rails'
   gem 'rake_shared_context'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
@@ -83,9 +83,7 @@ end
 
 group :development, :test do
   # テスト、コードチェックを自動で別プロセスでやる
-  gem 'guard', '= 2.7.3'
-  gem 'guard-rspec', '~> 0.4.2'
-  # gem 'guard-rspec'
+  gem 'guard-rspec'
   gem 'guard-spring'
   gem 'guard-rubocop'
   gem 'terminal-notifier-guard'
@@ -130,8 +128,10 @@ end
 # heroku連携
 gem 'heroku'
 gem 'puma'
-# travis連携
-gem 'travis'
+group :development do
+  # travis連携
+  gem 'travis'
+end
 
 # css fremework compass
 gem 'compass-rails'
