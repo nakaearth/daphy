@@ -12,8 +12,7 @@
   </div>
 </div>
 <script type='text/javascript'>
-  $( "#todo_list" ).droppable({
-    accept: ".job_card",
+  $("#todo_list").droppable({
     drop: function(event, ui) {
       $(this).addClass( "ui-state-highlight" )
         .find( "div" )
@@ -22,15 +21,15 @@
      }
   });
 
-  $("#doing_list").droppable({
+  // $("#doing_list").droppable({
+  $(".job_list").droppable({
     drop: function(event, ui) {
       $(this).html($(this).html() +
               ui.draggable.text() + 'がドロップされました。<br />');
     }
   });
 
-  $( "#done_list" ).droppable({
-    accept: ".job_card",
+  $("#done_list").droppable({
     drop: function(event, ui) {
       alert('drop');
     }
