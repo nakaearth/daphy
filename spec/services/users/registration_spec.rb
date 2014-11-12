@@ -29,7 +29,7 @@ module Users
 
         it 'groupも登録される' do
           test_user = User.find_by(uid: '11223344aaaa')
-          expect(test_user.group.name).to eq(test_user.name + 'group')
+          expect(test_user.group.name).to eq(test_user.name + ' group')
         end
       end
     end

@@ -18,9 +18,7 @@ module Users
         end
         user.group_id = 0
       end
-
-      group = Group.new(name: @login_user.name + 'group')
-      @login_user.group = group
+      @login_user.group = Group.find_or_create_by(name: @login_user.name + ' group')
       @login_user.save!
 
       @login_user
