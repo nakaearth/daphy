@@ -29,3 +29,5 @@ deploy:
   app: daphy
   on:
     repo: nakaearth/daphy
+notifications:
+  slack: s-nakamura:70ZBpyKjrkR5Ps3lKy4wLjUu

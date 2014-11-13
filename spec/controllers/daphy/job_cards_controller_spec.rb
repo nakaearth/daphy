@@ -39,5 +39,8 @@ module Daphy
         expect(response).to have_http_status(:success)
       end
     end
+
+    describe 'POST create' do
+    end
   end
 end
