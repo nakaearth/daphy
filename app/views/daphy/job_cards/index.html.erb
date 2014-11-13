@@ -1,13 +1,13 @@
 <%= flash[:notice] %>
 <hr/>
 <div class='job_board' id='job_board'>
-  <div class='job_list' id='todo_list'>
+  <div class='job_list' id='Todo'>
     TODO:<%= render partial: 'job_card', collection:  @todos %>
   </div>
-  <div class='job_list' id='doing_list'>
+  <div class='job_list' id='Doing'>
     DOING:<%= render partial: 'job_card', collection: @doings %>
   </div>
-  <div class='job_list' id='done_list'>
+  <div class='job_list' id='Done'>
     DONE:<%= render partial: 'job_card', collection: @dones %>
   </div>
 </div>
