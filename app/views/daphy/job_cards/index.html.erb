@@ -14,17 +14,15 @@
 <script type='text/javascript'>
   $("#todo_list").droppable({
     drop: function(event, ui) {
-      $(this).addClass( "ui-state-highlight" )
-        .find( "div" )
+      $(this).
         .html( "ドロップされました!" );
-      alert('drop');
      }
   });
 
   // $("#doing_list").droppable({
   $(".job_list").droppable({
     drop: function(event, ui) {
-      $(this).html($(this).html() +
+      $(this).html(
               ui.draggable.text() + 'がドロップされました。<br />');
     }
   });

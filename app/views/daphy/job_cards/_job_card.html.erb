@@ -14,18 +14,18 @@
     containment: '#job_board',
     revert: 'true',
 
-//    stop: function(event, ui) {
-//      $.ajax({
-//        type:"PATCH",
-//        url:"/daphy/job_cards/<%= job_card.id %>/change_type?type=",
-//        contentType:'application/json',
-//        dataType:'json',
+    stop: function(event, ui) {
+      $.ajax({
+        type:"PATCH",
+        url:"/daphy/job_cards/<%= job_card.id %>/change_type?type=$(this).ui.droppable",
+        contentType:'application/json',
+        dataType:'json',
  
         // In case that an error happens, capture it and show the details.
- //       error:function (xhr, msg, error) {
-  //        alert(msg + ": " + error);
- //       }
- //     })
-//     }
+        error:function (xhr, msg, error) {
+          alert(msg + ": " + error);
+        }
+      })
+     }
    })
 </script>
