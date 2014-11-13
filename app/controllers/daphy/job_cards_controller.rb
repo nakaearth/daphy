@@ -47,7 +47,7 @@ module Daphy
     private
 
     def set_job_card
-      @job_card = JobCard.find(params[:id])
+      @job_card = JobCard.find_by(id: params[:id], type: params[:type])
     end
 
     def todo_params

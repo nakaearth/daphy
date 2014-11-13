@@ -28,14 +28,14 @@ module Daphy
 
     describe "GET edit" do
       it "returns http success" do
-        get :edit, id: job_cards[0].id, type: 'todo'
+        get :edit, id: job_cards[0].id, type: 'Todo'
         expect(response).to have_http_status(:success)
       end
     end
 
     describe "GET show" do
       it "returns http success" do
-        get :show, id: job_cards[1].id, type: 'todo'
+        get :show, id: job_cards[1].id, type: 'Todo'
         expect(response).to have_http_status(:success)
       end
     end
