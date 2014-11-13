@@ -19,7 +19,6 @@ module Users
         user.group = Group.find_or_create_by(name: user.name + ' group')
       end
       @login_user.save!
-p @login_user
       @login_user
     end
   end

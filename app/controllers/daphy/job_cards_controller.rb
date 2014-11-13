@@ -10,15 +10,13 @@ module Daphy
 
     def new
       @job_card = JobCard.new
+      @groups = current_user.group
     end
 
     def create
       job_card = JobCard.new(todo_params)
       job_card.type = 'Todo'
       job_card.user = current_user
-      p "=" * 10
-      p current_user.group
-      p "=" * 10
       job_card.group = current_user.group
       if job_card.save!
         flash[:notice] = "#{job_card.title}を追加しました"
@@ -29,6 +27,7 @@ module Daphy
     end
 
     def edit
+      @groups = current_user.group
     end
 
     def update
