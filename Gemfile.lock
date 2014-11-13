@@ -47,7 +47,7 @@ GEM
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
-    backports (3.6.3)
+    backports (3.6.4)
     better_errors (2.0.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -214,7 +214,7 @@ GEM
       activesupport (>= 3.0.0)
     launchy (2.4.3)
       addressable (~> 2.3)
-    listen (2.7.11)
+    listen (2.7.12)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -482,6 +482,7 @@ DEPENDENCIES
   font-awesome-rails
   foreman
   gon
+  guard (~> 2.8)
   guard-rspec
   guard-rubocop
   guard-spring
