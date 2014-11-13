@@ -16,11 +16,9 @@ module Users
           user.access_token = auth[:credentials][:token]
           user.secret_token = auth[:credentials][:secret]
         end
-        user.group_id = 0
+        user.group = Group.find_or_create_by(name: user.name + ' group')
       end
-      @login_user.group = Group.find_or_create_by(name: @login_user.name + ' group')
       @login_user.save!
-
       @login_user
     end
   end

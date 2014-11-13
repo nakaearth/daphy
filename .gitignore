@@ -16,4 +16,5 @@
 /tmp
 /vendor/bundle
 /coverage
+/public/assets
 /.sass-cache

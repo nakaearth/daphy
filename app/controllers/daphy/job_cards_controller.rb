@@ -1,6 +1,6 @@
 module Daphy
   class JobCardsController < ApplicationController
-    before_action :set_job_card, only: [:show, :edit, :update]
+    before_action :set_job_card, only: [:show, :edit, :update, :change_type]
 
     def index
       @todos = current_user.my_job_cards.todos.page(1).per(20)
@@ -10,6 +10,7 @@ module Daphy
 
     def new
       @job_card = JobCard.new
+      @groups = current_user.group
     end
 
     def create
@@ -26,6 +27,7 @@ module Daphy
     end
 
     def edit
+      @groups = current_user.group
     end
 
     def update
@@ -34,7 +36,8 @@ module Daphy
     end
 
     def change_type
-      @job_card.type = params[:type]
+      # @job_card.type = params[:type]
+      @job_card.type = 'Doing'
       @job_card.save!
     end
 
@@ -44,7 +47,7 @@ module Daphy
     private
 
     def set_job_card
-      @job = JobCard.where(id: params[:id], type: params[:type])
+      @job_card = JobCard.find(params[:id])
     end
 
     def todo_params

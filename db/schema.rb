@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141028074438) do
+ActiveRecord::Schema.define(version: 20141113092302) do
+
+  create_table "group_members", force: true do |t|
+    t.integer  "group_id",   null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "group_members", ["group_id"], name: "index_group_members_on_group_id"
+  add_index "group_members", ["user_id"], name: "index_group_members_on_user_id"
 
   create_table "groups", force: true do |t|
     t.string   "name"
