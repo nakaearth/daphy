@@ -14,8 +14,8 @@
 <script type='text/javascript'>
   $("#todo_list").droppable({
     drop: function(event, ui) {
-      $(this).
-        .html( "ドロップされました!" );
+      $(this)
+        .html(ui.drabbable.text() +  "ドロップされました!" );
      }
   });
 

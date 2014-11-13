@@ -17,8 +17,8 @@
     stop: function(event, ui) {
       $.ajax({
         type:"PATCH",
-        url:"/daphy/job_cards/<%= job_card.id %>/change_type?type=" ,
-        // url:"/daphy/job_cards/<%= job_card.id %>/change_type?type=Doing", 
+        // url:"/daphy/job_cards/<%= job_card.id %>/change_type?type=" ,
+        url:"/daphy/job_cards/<%= job_card.id %>/change_type?type=Doing", 
         contentType:'application/json',
         dataType:'json',
  
