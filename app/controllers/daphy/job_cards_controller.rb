@@ -17,8 +17,9 @@ module Daphy
       job_card.type = 'Todo'
       job_card.user = current_user
       job_card.group = current_user.group
-      if job_card.save
-        redirect_to action: :show, id: job_card.id
+      if job_card.save!
+        flash[:notice] = "#{job_card.title}を追加しました"
+        redirect_to action: :index
       else
         render action: :new
       end
