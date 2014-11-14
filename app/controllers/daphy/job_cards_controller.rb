@@ -36,7 +36,6 @@ module Daphy
     end
 
     def change_type
-      p params[:type]
       @job_card.type = params[:type]
       @job_card.save!
     end
