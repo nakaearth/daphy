@@ -38,6 +38,7 @@ module Daphy
     def change_type
       @job_card.type = params[:type]
       @job_card.save!
+      render json: { status: 'ok' }
     end
 
     def show
@@ -46,7 +47,7 @@ module Daphy
     private
 
     def set_job_card
-      @job_card = JobCard.find_by(id: params[:id], type: params[:type])
+      @job_card = JobCard.find(params[:id])
     end
 
     def todo_params

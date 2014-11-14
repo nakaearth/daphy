@@ -15,7 +15,7 @@
   $("#todo_list").droppable({
     drop: function(event, ui) {
       $(this)
-        .html(ui.drabbable.text() +  "ドロップされました!" );
+        .html(ui.draggable.text() +  "ドロップされました!" );
      }
   });
 
@@ -23,7 +23,18 @@
   $(".job_list").droppable({
     drop: function(event, ui) {
       $(this).html(
-              ui.draggable.text() + 'がドロップされました。<br />');
+        ui.draggable.text() + 'がドロップされました。<br />');
+      $.ajax({
+        type:"PATCH",
+        url:"/daphy/job_cards/"+ ui.draggable.attr('id')  + "/change_type?type=Doing",
+        contentType:'application/json',
+        dataType:'json',
+
+        // In case that an error happens, capture it and show the details.
+        error:function (xhr, msg, error) {
+          alert(msg + ": " + error + ui.draggable.attr('id'));
+        }
+      })
     }
   });
 

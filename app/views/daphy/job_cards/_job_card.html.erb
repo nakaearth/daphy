@@ -1,4 +1,4 @@
-<div id="job_card_<%=job_card.id %>" class="job">
+<div id="<%=job_card.id %>" class="job">
   <div id="job_card_menu" class="job_card_category_<%=job_card.type %>">
     <%= link_to '詳細', daphy_job_card_path(job_card) %>
   </div>
@@ -9,24 +9,9 @@
 </div>
 
 <script type='text/javascript'>
-  $("#job_card_<%=job_card.id %>").draggable({
+  $("#<%=job_card.id %>").draggable({
     snapMode: 'inner',
     containment: '#job_board',
-    revert: 'true',
-
-    stop: function(event, ui) {
-      $.ajax({
-        type:"PATCH",
-        // url:"/daphy/job_cards/<%= job_card.id %>/change_type?type=" ,
-        url:"/daphy/job_cards/<%= job_card.id %>/change_type?type=Doing", 
-        contentType:'application/json',
-        dataType:'json',
- 
-        // In case that an error happens, capture it and show the details.
-        error:function (xhr, msg, error) {
-          alert(msg + ": " + error + ui.droppable.position);
-        }
-      })
-     }
+    revert: 'true'
    })
 </script>
