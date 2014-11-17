@@ -11,10 +11,11 @@ module Daphy
     def new
       @job_card = JobCard.new
       @groups = current_user.group
+      @action = 'create'
     end
 
     def create
-      job_card = JobCard.new(todo_params)
+      job_card = JobCard.new(job_params)
       job_card.type = 'Todo'
       job_card.user = current_user
       job_card.group = current_user.group
@@ -28,11 +29,16 @@ module Daphy
 
     def edit
       @groups = current_user.group
+      @action = 'update'
     end
 
     def update
-      @job_card.type = params[:type]
-      @job_card.save!
+      if @job_card.update(update_job_params)
+        flash[:notice] = "#{@job_card.title}を更新しました"
+        redirect_to action: :index
+      else
+        redner action: :edit
+      end
     end
 
     def change_type
@@ -56,8 +62,16 @@ module Daphy
       @job_card = JobCard.find(params[:id])
     end
 
-    def todo_params
+    def job_params
       params.require(:job_card).permit(:title, :description, :point) if params[:job_card]
+    end
+
+    def update_job_params
+      if @job_card.type == 'Todo'
+        params.require(:todo).permit(:title, :description, :point) if params[:todo]
+      elsif @job_card.type == 'Doing'
+        params.require(:doing).permit(:title, :description, :point) if params[:doing]
+      end
     end
   end
 end
