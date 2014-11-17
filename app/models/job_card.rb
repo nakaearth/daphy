@@ -17,4 +17,5 @@ class JobCard < ActiveRecord::Base
   scope :todos, -> { where(type: 'Todo') }
   scope :doings, -> { where(type: 'Doing') }
   scope :dones, -> { where(type: 'Done') }
+  scope :trashes, -> { where(type: 'Trashed') }
 end

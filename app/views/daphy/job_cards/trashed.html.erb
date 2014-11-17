@@ -1,1 +1,6 @@
 削除したタスクの一覧
+<div class='job_board' id='job_board'>
+  <div class='trash_job_list' id='Trashed'>
+    <%= render partial: 'job_card', collection:  @trashes %>
+  </div>
+</div>

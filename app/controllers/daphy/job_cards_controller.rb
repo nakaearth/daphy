@@ -58,6 +58,7 @@ module Daphy
     end
 
     def trashed
+      @trashes = current_user.my_job_cards.trashes
     end
 
 
