@@ -15,9 +15,16 @@ module Daphy
     end
 
     describe "GET index" do
-      it "returns http success" do
+      before do
         get :index
+      end
+
+      it "returns http success" do
         expect(response).to have_http_status(:success)
+      end
+
+      it 'render the :index template' do
+        expect(response).to render_template :index
       end
 
       it 'Todoタスクの一覧が返される' do
