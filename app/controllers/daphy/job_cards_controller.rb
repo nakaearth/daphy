@@ -44,6 +44,12 @@ module Daphy
     def show
     end
 
+    def destroy
+      flash[:notice] = "#{@job_card.title}を削除しました"
+      @job_card.destroy
+      redirect_to action: :index
+    end
+
     private
 
     def set_job_card
