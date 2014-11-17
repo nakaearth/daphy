@@ -18,6 +18,8 @@ Rails.application.routes.draw do
         patch 'change_type'
       end
     end
+
+    resources :groups
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
