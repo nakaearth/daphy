@@ -12,10 +12,8 @@
   </div>
 </div>
 <script type='text/javascript'>
-  $("#todo_list").droppable({
+  $("#Todo").droppable({
     drop: function(event, ui) {
-      $(this).html(
-        ui.draggable.text() + 'がドロップされました。<br />');
       $.ajax({
         type:"PATCH",
         url:"/daphy/job_cards/"+ ui.draggable.attr('id')  + "/change_type?type=Todo",
@@ -30,10 +28,8 @@
     }
   });
 
-  $(".job_list").droppable({
+  $("#Doing").droppable({
     drop: function(event, ui) {
-      $(this).html(
-        ui.draggable.text() + 'がドロップされました。<br />');
       $.ajax({
         type:"PATCH",
         url:"/daphy/job_cards/"+ ui.draggable.attr('id')  + "/change_type?type=Doing",
@@ -48,10 +44,8 @@
     }
   });
 
-  $("#done_list").droppable({
+  $("#Done").droppable({
     drop: function(event, ui) {
-      $(this).html(
-        ui.draggable.text() + 'がドロップされました。<br />');
       $.ajax({
         type:"PATCH",
         url:"/daphy/job_cards/"+ ui.draggable.attr('id')  + "/change_type?type=Done",
