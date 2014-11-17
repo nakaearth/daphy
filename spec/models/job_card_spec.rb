@@ -60,6 +60,5 @@ describe JobCard, type: :model do
         expect(@done.type).to eq('Done')
       end
     end
-
   end
 end

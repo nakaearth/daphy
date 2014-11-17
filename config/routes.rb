@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
   namespace :daphy do
     resources :job_cards do
+      collection do
+        get 'trashed'
+      end
+
       member do
         patch 'change_type'
       end
