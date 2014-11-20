@@ -1,0 +1,19 @@
+<div id="<%= group.id %>" class="group">
+  <div id="group_menu" class="job_card_category_<%= job_card.type %>">
+    <%= link_to '詳細', daphy_group_path(group) %>&nbsp;&nbsp;|
+    <%= link_to '編集', edit_daphy_group_path(group) %> &nbsp;&nbsp;|
+    <%= link_to '削除', daphy_group_path(group), method: :delete, data: { confirm: 'Are you sure?' } %> &nbsp;&nbsp;|
+  </div>
+  <br/>
+  <%= group.name %>
+  <br/>
+  <%= group.created_at %>
+</div>
+
+<script type='text/javascript'>
+  $("#<%=group.id %>").draggable({
+    snapMode: 'inner',
+    containment: '#job_board',
+    revert: 'true'
+   })
+</script>

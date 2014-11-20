@@ -1,3 +1,4 @@
-<% @group.each do |group| %>
-  <%= group.name %>
-<% end %>
+グループの一覧
+<div class='group_list' id='group_list'>
+  <%= render partial: 'group', collection:  @groups %>
+</div>
