@@ -61,7 +61,6 @@ module Daphy
       @trashes = current_user.my_job_cards.trashes
     end
 
-
     private
 
     def set_job_card

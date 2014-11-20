@@ -1,5 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Daphy::GroupsController, :type => :controller do
+module Daphy
+  RSpec.describe GroupsController, type: :controller do
 
+  end
 end
