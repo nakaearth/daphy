@@ -93,6 +93,7 @@ end
 group :development do
   gem "pry-rails"
   gem "pry-doc"
+  gem 'pry-byebug'
   gem "awesome_print"
   gem "better_errors"
   gem "quiet_assets"
