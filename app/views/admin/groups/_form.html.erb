@@ -1,0 +1,6 @@
+<div class='group_form' id='group_form'>
+  <%= form_for @group, url: { action: @action, controller: 'daphy/groups' }, :html => {:multipart => true} do |f| %>
+    <%= f.label :name %>:<%= f.text_field :name %><br/>
+    <%= f.submit %>
+  <% end %> 
+</div>

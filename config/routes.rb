@@ -18,9 +18,12 @@ Rails.application.routes.draw do
         patch 'change_type'
       end
     end
-
+  end
+  
+  namespace :admin do
     resources :groups
   end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
