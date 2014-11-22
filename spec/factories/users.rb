@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :user do
-    name 'test user'
+    name 'test_user'
     sequence(:email) { |n| "test#{n}@gmail.com" }
     sequence(:uid) { |n| "uid123#{n}aaaaa" }
     provider 'developer'

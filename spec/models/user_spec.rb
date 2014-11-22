@@ -16,8 +16,11 @@ describe User, type: :model do
       it { expect ensure_length_of(:name).is_at_most(60) }
     end
 
+    context 'uidカラム' do
+      it { expect validate_presence_of(:uid) }
+    end
+
     context 'emailカラム' do
-      it { expect validate_presence_of(:email) }
       it { expect ensure_length_of(:email).is_at_most(60) }
     end
 

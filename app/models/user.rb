@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
   has_many :my_job_cards, class_name: JobCard
 
   validates :name, presence: true, length: { maximum: 60 }
-  validates :email, presence: true, length: { maximum: 60 }
+  validates :uid, presence: true
+  validates :email, length: { maximum: 60 }
   validates :provider, presence: true, length: { maximum: 10 }
 
   def self.create_account(auth)
