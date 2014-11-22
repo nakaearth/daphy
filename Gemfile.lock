@@ -501,6 +501,7 @@ DEPENDENCIES
   json_pure (= 1.5.3)
   kaminari
   omniauth-twitter
+  parser (= 2.2.0.pre.8)
   pg
   pry-byebug
   pry-doc
