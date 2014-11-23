@@ -65,6 +65,22 @@ module Daphy
     end
 
     describe 'POST create' do
+      context '登録が正常にできるか' do
+        before do
+          post :create, { job_card: { title: 'test', description: 'hogehoge\nhoge', point: 1 } }
+        end
+
+        it 'returns http success' do
+          expect(response).to have_http_status(:found)
+        end
+
+        it '登録されている' do
+          job = Todo.find_by(title: 'test')
+          expect(job).not_to be_nil
+          expect(job.user_id).to eq(user.id)
+          expect(job.description).to eq('hogehoge\nhoge')
+        end
+      end
     end
   end
 end
