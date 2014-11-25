@@ -20,6 +20,7 @@ module Users
         end
         @login_user.save!
 
+        # TODO: ここはコールバックにしたほうがいいのか?
         group = Group.find_or_create_by(name: @login_user.name + ' group')
         GroupMember.find_or_create_by(user: @login_user, group: group)
         @login_user
