@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe JobCard, type: :model do
   let!(:group) { create(:group) }
-  let!(:user) { create(:user, group: group) }
+  let!(:user) { create(:user) }
   let!(:job_card) { create_list(:job_card, 4, user: user, group: group) }
 
   describe '幾つかのテーブルと関連を持っている' do

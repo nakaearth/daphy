@@ -4,7 +4,8 @@ module Daphy
     render_views
 
     let!(:group) { create(:group) }
-    let!(:user) { create(:user, group: group) }
+    let!(:user) { create(:user) }
+    let!(:group_member) { create(:group_member, user: user, group: group) }
     let!(:todo_list) { create_list(:job_card, 4, user: user, group: group) }
     let!(:doing_list) { create_list(:job_card, 5, :doing, user: user, group: group) }
     let!(:done_list) { create_list(:job_card, 3, :done, user: user, group: group) }
@@ -14,12 +15,12 @@ module Daphy
       allow(controller).to receive(:login?) { true }
     end
 
-    describe "GET index" do
+    describe 'GET index' do
       before do
         get :index
       end
 
-      it "returns http success" do
+      it 'returns http success' do
         expect(response).to have_http_status(:success)
       end
 
@@ -43,22 +44,22 @@ module Daphy
       end
     end
 
-    describe "GET new" do
-      it "returns http success" do
+    describe 'GET new' do
+      it 'returns http success' do
         get :new
         expect(response).to have_http_status(:success)
       end
     end
 
-    describe "GET edit" do
-      it "returns http success" do
+    describe 'GET edit' do
+      it 'returns http success' do
         get :edit, id: todo_list[0].id, type: 'Todo'
         expect(response).to have_http_status(:success)
       end
     end
 
-    describe "GET show" do
-      it "returns http success" do
+    describe 'GET show' do
+      it 'returns http success' do
         get :show, id: todo_list[1].id, type: 'Todo'
         expect(response).to have_http_status(:success)
       end

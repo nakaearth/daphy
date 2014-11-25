@@ -3,7 +3,7 @@ module Admin
     before_action :set_group, only: [:show, :edit, :destroy]
 
     def index
-      # @groups = current_user.my_groups
+      @groups = current_user.my_groups
     end
 
     def show

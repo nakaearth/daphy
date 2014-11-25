@@ -11,17 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141113092302) do
+ActiveRecord::Schema.define(version: 20141125141649) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "group_members", force: true do |t|
-    t.integer  "group_id",   null: false
-    t.integer  "user_id",    null: false
+    t.integer  "group_id",                   null: false
+    t.integer  "user_id",                    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "owner",      default: false
   end
 
-  add_index "group_members", ["group_id"], name: "index_group_members_on_group_id"
-  add_index "group_members", ["user_id"], name: "index_group_members_on_user_id"
+  add_index "group_members", ["group_id"], name: "index_group_members_on_group_id", using: :btree
+  add_index "group_members", ["user_id"], name: "index_group_members_on_user_id", using: :btree
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -41,8 +45,8 @@ ActiveRecord::Schema.define(version: 20141113092302) do
     t.datetime "updated_at"
   end
 
-  add_index "job_cards", ["group_id"], name: "index_job_cards_on_group_id"
-  add_index "job_cards", ["user_id"], name: "index_job_cards_on_user_id"
+  add_index "job_cards", ["group_id"], name: "index_job_cards_on_group_id", using: :btree
+  add_index "job_cards", ["user_id"], name: "index_job_cards_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -51,14 +55,12 @@ ActiveRecord::Schema.define(version: 20141113092302) do
     t.string   "nickname"
     t.string   "access_token"
     t.string   "secret_token"
-    t.integer  "group_id",                  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_url"
     t.string   "uid",          default: "", null: false
   end
 
-  add_index "users", ["group_id"], name: "index_users_on_group_id"
-  add_index "users", ["provider", "email"], name: "index_users_on_provider_and_email"
+  add_index "users", ["provider", "email"], name: "index_users_on_provider_and_email", using: :btree
 
 end

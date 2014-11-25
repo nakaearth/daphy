@@ -1,12 +1,11 @@
 require 'rails_helper'
 
 describe User, type: :model do
-  let!(:group) { create(:group) }
-  let!(:user) { create(:user, group: group) }
+  let!(:user) { create(:user) }
 
   describe '幾つかのテーブルと関連を持っている' do
     context 'have a relation to user class' do
-      it { expect belong_to(:groups) }
+      # it { expect has_many_to(:group_members) }
     end
   end
 

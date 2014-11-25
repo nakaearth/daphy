@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
-  belongs_to :group
-  has_many :group_mambers, dependent: :destroy
+  has_many :group_members, dependent: :destroy
   has_many :my_groups, through: :group_members, source: :group
   has_many :my_job_cards, class_name: JobCard
 

@@ -45,4 +45,4 @@ CyclomaticComplexity:
   Enabled: false
 
 Metrics/AbcSize:
-  Max: 38
+  Max: 40

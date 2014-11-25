@@ -3,7 +3,7 @@ require 'rails_helper'
 module Users
   describe Registration do
     let!(:group) { create(:group) }
-    let!(:user) { create(:user, group: group) }
+    let!(:user) { create(:user) }
 
     describe 'twitter登録処理を追加' do
       let!(:auth) do
@@ -29,7 +29,7 @@ module Users
 
         it 'groupも登録される' do
           test_user = User.find_by(uid: '11223344aaaa')
-          expect(test_user.group.name).to eq(test_user.name + ' group')
+          expect(test_user.my_groups[0].name).to eq(test_user.name + ' group')
         end
       end
     end

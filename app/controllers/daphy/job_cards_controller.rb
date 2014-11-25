@@ -10,7 +10,7 @@ module Daphy
 
     def new
       @job_card = JobCard.new
-      @groups = current_user.group
+      @groups = current_user.my_groups
       @action = 'create'
     end
 
@@ -18,7 +18,7 @@ module Daphy
       job_card = JobCard.new(job_params)
       job_card.type = 'Todo'
       job_card.user = current_user
-      job_card.group = current_user.group
+      job_card.group = current_user.my_groups[0]
       if job_card.save!
         flash[:notice] = "#{job_card.title}を追加しました"
         redirect_to action: :index
@@ -28,7 +28,7 @@ module Daphy
     end
 
     def edit
-      @groups = current_user.group
+      @groups = current_user.my_groups
       @action = 'update'
     end
 
