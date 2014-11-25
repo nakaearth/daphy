@@ -67,7 +67,8 @@ module Daphy
     describe 'POST create' do
       context '登録が正常にできるか' do
         before do
-          post :create, { job_card: { title: 'test', description: 'hogehoge\nhoge', point: 1 } }
+          params = { job_card: { title: 'test', description: 'hogehoge\nhoge', point: 1 } }
+          post :create, params
         end
 
         it 'returns http success' do
