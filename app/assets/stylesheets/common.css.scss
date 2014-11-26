@@ -21,12 +21,18 @@ body {
   //@include box-shadow(0px 0px 32px -5px #000);
 }
 menu {
+  .left_div {
+    text-align: left;
+  }
+  .right_div {
+    text-align: rigit;
+  }
   font-size: 10pt;
-  text-align: left;
   font-weight: bold;
   color: #3725A8;
   background-color: #CCFFFF;
 }
+
 header {
   color: #000000;
   position: absolute;

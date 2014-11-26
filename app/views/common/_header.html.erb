@@ -1,5 +1,12 @@
 <menu>
-  <%= link_to_unless_current '一覧', { action: 'index', controller: 'daphy/job_cards' }, id: 'regist_link' %> &nbsp;&nbsp;|
-  <%= link_to_unless_current '登録', { action: 'new', controller: 'daphy/job_cards' }, id: 'regist_link' %> &nbsp;&nbsp;|
-  <%= link_to_unless_current image_tag('trashbox.png', size: '30x30', board: 0, alt: 'ゴミ箱' ), { action: 'trashed', controller: 'daphy/job_cards' }, id: 'regist_link' %> &nbsp;&nbsp;|
+  <div class='left_div'>
+    <%= link_to_unless_current '一覧', { action: 'index', controller: 'daphy/job_cards' }, id: 'regist_link' %> &nbsp;&nbsp;|
+    <%= link_to_unless_current '登録', { action: 'new', controller: 'daphy/job_cards' }, id: 'regist_link' %> &nbsp;&nbsp;|
+    <%= link_to_unless_current image_tag('trashbox.png', size: '30x30', board: 0, alt: 'ゴミ箱' ), { action: 'trashed', controller: 'daphy/job_cards' }, id: 'regist_link' %> &nbsp;&nbsp;|
+  </div>
+  <div class='right_div'>
+    <%= image_tag  current_user.image_url, size: '40x40' %><br/>
+    <%= current_user.nickname %>
+    <%= link_to "ログアウト", logout_path  %> 
+  </div>
 </menu>
