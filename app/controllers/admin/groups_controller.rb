@@ -15,9 +15,7 @@ module Admin
     end
 
     def create
-      @group = Group.new(group_params)
-      @group.user = current_user
-      if @group.save
+      if Groups::Registration.new.regist(group_params, current_user)
         flash[:notice] = 'グループを作成しました'
         redirect_to action: :index
       else

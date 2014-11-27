@@ -72,7 +72,7 @@ module Daphy
           post :create, params
         end
 
-        it 'returns http success' do
+        it '登録成功してリダイレクトする' do
           expect(response).to have_http_status(:found)
         end
 
