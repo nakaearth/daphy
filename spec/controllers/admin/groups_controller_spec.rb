@@ -29,7 +29,7 @@ module Admin
 
       it '自分が所属するグループの一覧が表示される' do
         expect(assigns[:groups]).not_to be_nil
-        expect(assigns[:groups].size).to eq(2)
+        expect(assigns[:groups].size).to eq(3)
       end
     end
 

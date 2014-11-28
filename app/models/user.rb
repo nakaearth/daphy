@@ -8,7 +8,16 @@ class User < ActiveRecord::Base
   validates :email, length: { maximum: 60 }
   validates :provider, presence: true, length: { maximum: 10 }
 
+  after_create :create_group_members
+
   def self.create_account(auth)
     Users::Registration.new.regist auth
+  end
+
+  protected
+
+  def create_group_members
+    group = Group.find_or_create_by(name: name + ' group')
+    GroupMember.find_or_create_by(user: self, group: group)
   end
 end
