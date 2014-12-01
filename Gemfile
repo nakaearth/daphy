@@ -125,6 +125,7 @@ group :production do
   gem "rails_12factor"
   gem "bugsnag"
   gem "puma"
+  gem "newrelic_rpm"
 end
 
 # heroku連携

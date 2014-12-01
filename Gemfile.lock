@@ -235,6 +235,7 @@ GEM
     net-http-persistent (2.9.4)
     net-http-pipeline (1.0.1)
     netrc (0.7.9)
+    newrelic_rpm (3.9.6.257)
     oauth (0.4.7)
     omniauth (1.2.2)
       hashie (>= 1.2, < 4)
@@ -499,6 +500,7 @@ DEPENDENCIES
   json (= 1.8.0)
   json_pure (= 1.5.3)
   kaminari
+  newrelic_rpm
   omniauth-twitter
   parser (= 2.2.0.pre.8)
   pg
