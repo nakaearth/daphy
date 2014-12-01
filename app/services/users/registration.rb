@@ -9,7 +9,7 @@ module Users
           user.uid      = auth[:uid]
           user.nickname = auth[:info][:nickname]
           user.image_url  = auth[:info][:image]
-          p auth[:info]
+
           unless auth[:credentials].blank?
             user.access_token = auth[:credentials][:token]
             user.secret_token = auth[:credentials][:secret]
