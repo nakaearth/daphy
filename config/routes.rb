@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
   
   namespace :admin do
+    get 'top/index'
     resources :groups
   end
 
