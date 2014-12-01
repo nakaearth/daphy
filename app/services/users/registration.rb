@@ -8,10 +8,8 @@ module Users
           user.provider = auth[:provider]
           user.uid      = auth[:uid]
 
-          unless auth[:extra].blank?
-            user.nickname = auth[:extra][:raw_info][:nickname]
-            user.image_url  = auth[:extra][:raw_info][:image]
-          end
+          user.nickname = auth[:info][:nickname]
+          user.image_url  = auth[:info][:image]
 
           unless auth[:credentials].blank?
             user.access_token = auth[:credentials][:token]
@@ -19,10 +17,6 @@ module Users
           end
         end
         @login_user.save!
-
-        # TODO: ここはコールバックにしたほうがいいのか?
-        # group = Group.find_or_create_by(name: @login_user.name + ' group')
-        # GroupMember.find_or_create_by(user: @login_user, group: group)
         @login_user
       end
     end
