@@ -1,0 +1,50 @@
+// Place all the styles related to the koremita/jobs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.group_list {
+  position: relative;
+  text-align: left;
+  font-weight: bold;
+  border: 2px solid #333333;
+  background-color: #FFFFFF;
+  vertical-align: text-top;
+  width: 80%;
+  height: 900px;
+  overflow: visible;  
+  padding: 10px;
+  margin: 10px;
+  float: left;
+  z-index: 1;
+  -webkit-border-radius: 10px;/* Safari、Google Chrome */
+  -moz-border-radius: 10px;/* Firefox */
+}
+.group {
+  // background-color: #FFFFDB;
+  border: 1px solid #333333;
+  font-size: 10pt;
+  width: 200px;
+  margin: 3px;
+  float: left;
+  cursor: move;
+  padding: 5px;
+  margin: 5px;
+  -webkit-border-radius: 10px;/* Safari、Google Chrome */
+  -moz-border-radius: 10px;/* Firefox */
+}
+.group_form {
+  position: relative;
+  text-align: left;
+  font-weight: bold;
+  border: 2px solid #333333;
+  background-color: #FFFFFF;
+  vertical-align: text-top;
+  width: 800px;
+  height: 700px;
+  overflow: visible;  
+  padding: 70px;
+  margin: 80px;
+  // z-index: 1;
+  -webkit-border-radius: 10px;/* Safari、Google Chrome */
+  -moz-border-radius: 10px;/* Firefox */
+}
+
