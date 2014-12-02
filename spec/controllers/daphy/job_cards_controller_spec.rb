@@ -86,12 +86,10 @@ module Daphy
 
       context '入力エラーがある場合' do
         let!(:params) { { job_card: { description: 'hogehoge\nhoge', point: 1 } } }
-        before do
-        end
 
         it '画面表示される画面' do
           pending '入力エラーの場合のテストの書き方を再検討'
-          expect(response).to render_template :new
+          expect(post :create, params).to render_template :new
         end
 
         it 'エラーが発生する' do
