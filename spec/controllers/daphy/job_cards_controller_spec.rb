@@ -45,15 +45,21 @@ module Daphy
     end
 
     describe 'GET new' do
-      it 'returns http success' do
+      before do
         get :new
+      end
+
+      it 'returns http success' do
         expect(response).to have_http_status(:success)
       end
     end
 
     describe 'GET edit' do
-      it 'returns http success' do
+      before do
         get :edit, id: todo_list[0].id, type: 'Todo'
+      end
+
+      it 'returns http success' do
         expect(response).to have_http_status(:success)
       end
     end

@@ -4,7 +4,7 @@
     <%= f.label :point %>:<%= f.select :point, [[1, 1], [2, 2], [3, 3]] %><br/>
      
     <%= f.label :group %>:<%= f.select :group_id do %>
-      <% @current_user.my_groups.each do |group| %>
+      <% @groups.each do |group| %>
         <%= content_tag(:option, group.name, value: group.id) %>
       <% end %>
     <% end %>
