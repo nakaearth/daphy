@@ -1,5 +1,5 @@
-<div id="<%= trashed_trashed_job_card.id %>" class="job job_status_<%= job_card.type %>">
-  <%= render partial: 'trashed_trashed_job_card_menu', locals: { trashed_job_card: trashed_job_card }  %> 
+<div id="<%= trashed_job_card.id %>" class="job job_status_<%= trashed_job_card.type %>">
+  <%= render partial: 'trashed_job_card_menu', locals: { trashed_job_card: trashed_job_card }  %> 
   <br/>
   <%= trashed_job_card.title %>
   <br/>
@@ -7,7 +7,7 @@
 </div>
 
 <script type='text/javascript'>
-  $("#<%=trashed_job_card.id %>").draggable({
+  $("#<%= trashed_job_card.id %>").draggable({
     snapMode: 'inner',
     containment: '#job_board',
     revert: 'true'
