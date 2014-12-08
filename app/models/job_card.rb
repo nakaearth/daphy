@@ -18,4 +18,6 @@ class JobCard < ActiveRecord::Base
   scope :doings, -> { where(type: 'Doing') }
   scope :dones, -> { where(type: 'Done') }
   scope :trashes, -> { where(type: 'Trashed') }
+
+  enum types: %w(Todo Doing Done Trashed)
 end
