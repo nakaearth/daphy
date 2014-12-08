@@ -16,7 +16,7 @@ module Daphy
 
     def create
       job_card = JobCard.new(job_params)
-      job_card.type = 'Todo'
+      job_card.type = :todo
       job_card.user = current_user
       job_card.group = current_user.my_groups[0]
       if job_card.save!
@@ -62,7 +62,8 @@ module Daphy
     end
 
     def recover
-      @job_card.Todo!
+      @job_card.type = :todo
+      @job_card.save!
     end
 
     private
