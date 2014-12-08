@@ -84,7 +84,7 @@
   }@else if $status == 'Done' {
     font-size: 9px;
     background-color: #FF3333;
-  }@else if $status == 'Transhed' {
+  }@else if $status == 'Trashed' {
     font-size: 9px;
     background-color: #FFCCFF;
   }@else if $status == 'Icebox' {
