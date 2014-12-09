@@ -78,9 +78,9 @@ module Daphy
     end
 
     def update_job_params
-      if @job_card.type == 'Todo'
+      if @job_card.todo?
         params.require(:todo).permit(:title, :description, :point) if params[:todo]
-      elsif @job_card.type == 'Doing'
+      elsif @job_card.doing?
         params.require(:doing).permit(:title, :description, :point) if params[:doing]
       end
     end

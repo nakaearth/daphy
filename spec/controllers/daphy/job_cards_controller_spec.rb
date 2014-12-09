@@ -105,6 +105,42 @@ module Daphy
       end
     end
 
+    describe 'PUT update' do
+      context '更新が正常にできるか' do
+        before do
+          param = { id: todo_list[0].id, todo: { title: 'test_2', description: 'hogehoge\nhoge2', point: 2 } }
+          put :update, param
+        end
+
+        it '更新成功してリダイレクトする' do
+          expect(response).to have_http_status(:found)
+        end
+
+        it '値が更新されている' do
+          job = Todo.find_by(title: 'test_2')
+          expect(job).not_to be_nil
+          expect(job.user_id).to eq(user.id)
+          expect(job.description).to eq('hogehoge\nhoge2')
+        end
+      end
+
+      context '入力エラーがある場合' do
+        before do
+          @param = { id: todo_list[0], todo: { description: 'hogehoge\nhoge', point: 1 } }
+        end
+
+        it '画面表示される画面' do
+          pending '入力エラーの場合のテストの書き方を再検討'
+          expect(put :update, @param).to render_template :new
+        end
+
+        it 'エラーが発生する' do
+          pending '入力エラーの場合のテストの書き方を再検討'
+          expect(put :update, @param).to raise_error(ActiveRecord::RecordInvalid)
+        end
+      end
+    end
+
     describe 'PUT recover' do
       context '更新が正常にできるか' do
 
