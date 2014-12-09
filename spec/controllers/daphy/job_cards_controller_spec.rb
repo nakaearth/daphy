@@ -106,7 +106,7 @@ module Daphy
     end
 
     describe 'PUT update' do
-      context '更新が正常にできるか' do
+      context 'typeがtodoの項目の更新' do
         before do
           param = { id: todo_list[0].id, todo: { title: 'test_2', description: 'hogehoge\nhoge2', point: 2 } }
           put :update, param
@@ -121,6 +121,24 @@ module Daphy
           expect(job).not_to be_nil
           expect(job.user_id).to eq(user.id)
           expect(job.description).to eq('hogehoge\nhoge2')
+        end
+      end
+
+      context 'typeがdoingの項目の更新' do
+        before do
+          param = { id: doing_list[0].id, doing: { title: 'test_3', description: 'hogehoge\nhoge3', point: 2 } }
+          put :update, param
+        end
+
+        it '更新成功してリダイレクトする' do
+          expect(response).to have_http_status(:found)
+        end
+
+        it '値が更新されている' do
+          job = Doing.find_by(title: 'test_3')
+          expect(job).not_to be_nil
+          expect(job.user_id).to eq(user.id)
+          expect(job.description).to eq('hogehoge\nhoge3')
         end
       end
 
