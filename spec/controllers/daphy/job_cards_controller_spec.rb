@@ -104,5 +104,11 @@ module Daphy
         end
       end
     end
+
+    describe 'PUT recover' do
+      context '更新が正常にできるか' do
+
+      end
+    end
   end
 end

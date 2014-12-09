@@ -64,6 +64,7 @@ module Daphy
     def recover
       @job_card.type = :todo
       @job_card.save!
+      redirect_to action: :trashed
     end
 
     private
