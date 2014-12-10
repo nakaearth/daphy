@@ -86,7 +86,7 @@
     background-color: #FF3333;
   }@else if $status == 'Trashed' {
     font-size: 9px;
-    background-color: #FFCCFF;
+    background-color: #FFCC00;
   }@else if $status == 'Icebox' {
     font-size: 9px;
     background-color: #0000BB;
@@ -95,11 +95,11 @@
   }
 }
 
-.job_status_Todo { @include job_status('Todo'); }
-.job_status_Doing { @include job_status('Doing'); }
-.job_status_Done { @include job_status('Done'); }
-.job_status_Trashed { @include job_status('Trashed'); }
-.job_status_Icebox { @include job_status('Icebox'); }
+.job_status_todo { @include job_status('Todo'); }
+.job_status_doing { @include job_status('Doing'); }
+.job_status_done { @include job_status('Done'); }
+.job_status_trashed { @include job_status('Trashed'); }
+.job_status_icebox { @include job_status('Icebox'); }
 
 .job_detail {
   position: relative;

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
       member do
         patch 'change_type'
+        patch 'recover'
       end
     end
   end
