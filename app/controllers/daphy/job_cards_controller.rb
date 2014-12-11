@@ -15,15 +15,17 @@ module Daphy
     end
 
     def create
-      job_card = JobCard.new(job_params)
-      job_card.type = :todo
-      job_card.user = current_user
-      job_card.group = current_user.my_groups[0]
-      if job_card.save!
-        flash[:notice] = "#{job_card.title}を追加しました"
-        redirect_to action: :index
-      else
-        render action: :new
+      ActiveRecord::Base.transaction do
+        job_card = JobCard.new(job_params)
+        job_card.type = :todo
+        job_card.user = current_user
+        job_card.group = current_user.my_groups[0]
+        if job_card.save!
+          flash[:notice] = "#{job_card.title}を追加しました"
+          redirect_to action: :index
+        else
+          render action: :new
+        end
       end
     end
 
@@ -33,11 +35,13 @@ module Daphy
     end
 
     def update
-      if @job_card.update(update_job_params)
-        flash[:notice] = "#{@job_card.title}を更新しました"
-        redirect_to action: :index
-      else
-        redner action: :edit
+      ActiveRecord::Base.transaction do
+        if @job_card.update(update_job_params)
+          flash[:notice] = "#{@job_card.title}を更新しました"
+          redirect_to action: :index
+        else
+          redner action: :edit
+        end
       end
     end
 
@@ -71,6 +75,15 @@ module Daphy
       @job_card.destroy!
       flash[:notice] = '削除しました'
       redirect_to action: :trashed
+    end
+
+    def remove_all
+      # TODO: ここ件数多かったら、あれだかれ後々非同期にする
+      ActiveRecord::Base.transaction do
+        current_user.trashed.destroy!
+      end
+
+      redirect_to action: :index
     end
 
     private
