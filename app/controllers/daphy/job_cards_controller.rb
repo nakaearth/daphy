@@ -1,6 +1,6 @@
 module Daphy
   class JobCardsController < ApplicationController
-    before_action :set_job_card, only: [:show, :edit, :update, :destroy, :change_type, :recovery]
+    before_action :set_job_card, only: [:show, :edit, :update, :destroy, :change_type, :recovery, :remove]
 
     def index
       @todos = current_user.my_job_cards.todos.page(1).per(20)
@@ -68,7 +68,9 @@ module Daphy
     end
 
     def remove
-      # 本当の削除
+      @job_card.destroy!
+      flash[:notice] = '削除しました'
+      redirect_to action: :trashed
     end
 
     private

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       member do
         patch 'change_type'
         patch 'recovery'
+        delete 'remove'
       end
     end
   end
