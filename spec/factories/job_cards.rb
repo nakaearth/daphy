@@ -13,6 +13,9 @@ FactoryGirl.define do
     trait :done do
       type 'Done'
     end
-  end
 
+    trait :trashed do
+      type 'Trashed'
+    end
+  end
 end

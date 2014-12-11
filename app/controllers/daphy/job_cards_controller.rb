@@ -1,6 +1,6 @@
 module Daphy
   class JobCardsController < ApplicationController
-    before_action :set_job_card, only: [:show, :edit, :update, :destroy, :change_type, :recover]
+    before_action :set_job_card, only: [:show, :edit, :update, :destroy, :change_type, :recovery]
 
     def index
       @todos = current_user.my_job_cards.todos.page(1).per(20)
@@ -61,10 +61,14 @@ module Daphy
       @trashes = current_user.my_job_cards.trashes
     end
 
-    def recover
+    def recovery
       @job_card.type = :todo
       @job_card.save!
       redirect_to action: :trashed
+    end
+
+    def remove
+      # 本当の削除
     end
 
     private

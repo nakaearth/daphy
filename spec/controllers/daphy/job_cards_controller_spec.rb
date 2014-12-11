@@ -9,6 +9,7 @@ module Daphy
     let!(:todo_list) { create_list(:job_card, 4, user: user, group: group) }
     let!(:doing_list) { create_list(:job_card, 5, :doing, user: user, group: group) }
     let!(:done_list) { create_list(:job_card, 3, :done, user: user, group: group) }
+    let!(:trashed_list) { create_list(:job_card, 2, :trashed, user: user, group: group) }
 
     before do
       allow(controller).to receive(:current_user) { user }
@@ -159,9 +160,23 @@ module Daphy
       end
     end
 
-    describe 'PUT recover' do
+    describe 'PUT recovery' do
       context '更新が正常にできるか' do
+        before do
+          param = { id: trashed_list[0].id }
+          put :recovery, param
+        end
 
+        it '更新成功してリダイレクトする' do
+          expect(response).to have_http_status(:found)
+        end
+
+        it 'が更新されている' do
+          job = trashed_list[0].reload
+          expect(job).not_to be_nil
+          expect(job.trashed?).to be_falsey
+          expect(job.todo?).to be_truthy
+        end
       end
     end
   end
