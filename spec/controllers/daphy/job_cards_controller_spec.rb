@@ -109,8 +109,8 @@ module Daphy
     describe 'PUT update' do
       context 'typeがtodoの項目の更新' do
         before do
-          param = { id: todo_list[0].id, todo: { title: 'test_2', description: 'hogehoge\nhoge2', point: 2 } }
-          put :update, param
+          params = { id: todo_list[0].id, todo: { title: 'test_2', description: 'hogehoge\nhoge2', point: 2 } }
+          put :update, params
         end
 
         it '更新成功してリダイレクトする' do
@@ -127,8 +127,8 @@ module Daphy
 
       context 'typeがdoingの項目の更新' do
         before do
-          param = { id: doing_list[0].id, doing: { title: 'test_3', description: 'hogehoge\nhoge3', point: 2 } }
-          put :update, param
+          params = { id: doing_list[0].id, doing: { title: 'test_3', description: 'hogehoge\nhoge3', point: 2 } }
+          put :update, params
         end
 
         it '更新成功してリダイレクトする' do
@@ -145,17 +145,17 @@ module Daphy
 
       context '入力エラーがある場合' do
         before do
-          @param = { id: todo_list[0], todo: { description: 'hogehoge\nhoge', point: 1 } }
+          @params = { id: todo_list[0], todo: { description: 'hogehoge\nhoge', point: 1 } }
         end
 
         it '画面表示される画面' do
           pending '入力エラーの場合のテストの書き方を再検討'
-          expect(put :update, @param).to render_template :new
+          expect(put :update, @params).to render_template :new
         end
 
         it 'エラーが発生する' do
           pending '入力エラーの場合のテストの書き方を再検討'
-          expect(put :update, @param).to raise_error(ActiveRecord::RecordInvalid)
+          expect(put :update, @params).to raise_error(ActiveRecord::RecordInvalid)
         end
       end
     end
@@ -163,8 +163,8 @@ module Daphy
     describe 'PUT recovery' do
       context '更新が正常にできるか' do
         before do
-          param = { id: trashed_list[0].id }
-          put :recovery, param
+          params = { id: trashed_list[0].id }
+          put :recovery, params
         end
 
         it '更新成功してリダイレクトする' do
@@ -176,6 +176,23 @@ module Daphy
           expect(job).not_to be_nil
           expect(job.trashed?).to be_falsey
           expect(job.todo?).to be_truthy
+        end
+      end
+    end
+
+    describe 'DELETE remove' do
+      context '削除が正常にできるか' do
+        before do
+          params = { id: trashed_list[0].id }
+          delete :remove, params
+        end
+
+        it '更新成功してリダイレクトする' do
+          expect(response).to have_http_status(:found)
+        end
+
+        it 'が更新されている' do
+          expect(Trashed.exists?(trashed_list[0])).to be_falsey
         end
       end
     end
