@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  namespace :daphy do
+  namespace :group do
+    get 'job_cards/index'
+    end
+  end
+
   get 'top/index'
 
  #facebook login 
