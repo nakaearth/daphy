@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :job_cards do
       collection do
         get 'trashed'
+        delete 'remove_all'
       end
 
       member do
