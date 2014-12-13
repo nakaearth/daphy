@@ -3,9 +3,16 @@ module Daphy
     before_action :set_job_card, only: [:show, :edit, :update, :destroy, :change_type, :recovery, :remove]
 
     def index
-      @todos = current_user.my_job_cards.todos.page(1).per(20)
-      @doings = current_user.my_job_cards.doings.page(1).per(20)
-      @dones = current_user.my_job_cards.dones.page(1).per(20)
+      @groups = current_user.my_groups
+      if params[:group_id]
+        @todos = JobCard.todos.where(group_id: params[:group_id]).page(1).per(20)
+        @doings = JobCard.doings.where(group_id: params[:group_id]).page(1).per(20)
+        @dones = JobCard.dones.where(group_id: params[:group_id]).page(1).per(20)
+      else
+        @todos = current_user.my_job_cards.todos.page(1).per(20)
+        @doings = current_user.my_job_cards.doings.page(1).per(20)
+        @dones = current_user.my_job_cards.dones.page(1).per(20)
+      end
     end
 
     def new
