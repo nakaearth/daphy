@@ -1,6 +1,7 @@
 <div id="<%= job_card.id %>" class="job job_status_<%= job_card.type %>">
   <%= render partial: 'job_card_menu', locals: { job_card: job_card }  %> 
   <br/>
+  <%= image_tag(job_card.user.image_url, size: '40x40') %><br/>
   <%= job_card.title %>
   <br/>
   <%= job_card.created_at %>
