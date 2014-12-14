@@ -4,7 +4,7 @@
       <% @groups.each do |group| %>
         <%= content_tag(:option, group.name, value: group.id) %>
       <% end %>
-    </select>
+    </select>&nbsp;&nbsp;|
     <%= link_to_unless_current '一覧', { action: 'index', controller: 'daphy/job_cards' }, id: 'list_link' %> &nbsp;&nbsp;|
     <%= link_to_unless_current '登録', { action: 'new', controller: 'daphy/job_cards' }, id: 'regist_link' %> &nbsp;&nbsp;|
     <%= link_to_unless_current image_tag('trashbox.png', size: '30x30', board: 0, alt: 'ゴミ箱' ), { action: 'trashed', controller: 'daphy/job_cards' }, id: 'trashed_link' %> &nbsp;&nbsp;|
