@@ -1,9 +1,9 @@
 module Daphy
   class JobCardsController < ApplicationController
     before_action :set_job_card, only: [:show, :edit, :update, :destroy, :change_type, :recovery, :remove]
+    before_action :set_groups, only: [:index, :new, :edit, :show, :trashed]
 
     def index
-      @groups = current_user.my_groups
       if params[:group_id]
         @todos = JobCard.todos.where(group_id: params[:group_id]).page(1).per(20)
         @doings = JobCard.doings.where(group_id: params[:group_id]).page(1).per(20)
@@ -17,7 +17,6 @@ module Daphy
 
     def new
       @job_card = JobCard.new
-      @groups = current_user.my_groups
       @action = 'create'
     end
 
@@ -37,7 +36,6 @@ module Daphy
     end
 
     def edit
-      @groups = current_user.my_groups
       @action = 'update'
     end
 
@@ -97,6 +95,10 @@ module Daphy
 
     def set_job_card
       @job_card = JobCard.find(params[:id])
+    end
+
+    def set_groups
+      @groups = current_user.my_groups
     end
 
     def job_params
