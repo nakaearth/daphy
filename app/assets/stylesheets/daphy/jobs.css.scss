@@ -23,12 +23,10 @@
   padding: 10px;
   margin: 10px;
   float: left;
-  // z-index: 2;
   -webkit-border-radius: 10px;/* Safari、Google Chrome */
   -moz-border-radius: 10px;/* Firefox */
 }
 .job {
-  // background-color: #FFFFDB;
   border: 1px solid #333333;
   font-size: 10pt;
   width: 200px;
@@ -40,6 +38,18 @@
   -webkit-border-radius: 10px;/* Safari、Google Chrome */
   -moz-border-radius: 10px;/* Firefox */
 }
+.job_detail {
+  border: 1px solid #333333;
+  font-size: 12pt;
+  width: 500px;
+  height: 600px;
+  margin: 3px;
+  padding: 5px;
+  margin: 5px;
+  -webkit-border-radius: 10px;/* Safari、Google Chrome */
+  -moz-border-radius: 10px;/* Firefox */
+}
+
 .trash_job_list {
   // position: relative;
   text-align: left;
