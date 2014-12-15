@@ -59,6 +59,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'database_rewinder'
   gem 'rake_shared_context'
+  gem 'rspec-request_describer'
 
   # コードカバレッジ
   gem 'simplecov', require: false
