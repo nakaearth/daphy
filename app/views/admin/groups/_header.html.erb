@@ -1,6 +1,7 @@
 <menu>
   <div class='left_div'>
-    <%= link_to_unless_current 'マイページへ戻る', daphy_job_cards_path, id: 'list_link' %> &nbsp;&nbsp;|
+    <%= link_to_unless_current 'マイページ', daphy_job_cards_path, id: 'list_link' %> &nbsp;&nbsp;|
+    <%= link_to_unless_current '設定画面トップ', admin_top_index_path, id: 'list_link' %> &nbsp;&nbsp;|
     <%= link_to_unless_current 'グループ一覧', admin_groups_path, id: 'list_link' %> &nbsp;&nbsp;|
     <%= link_to_unless_current 'グループ作成', new_admin_group_path %>&nbsp;&nbsp|
   </div>
