@@ -21,12 +21,13 @@
   $("select#group_id").change(function(){
       alert('変えるぞ');
     $.ajax({
-      url: "/daphy/job_cards?group_id="+$(this).val(),
+      url: "./",
       type: "GET",
+      data: { group_id = $(this).attr("value") },
       dataType: "html",
       error: function() {
         alert('グループ毎にタスクを表示するのに失敗しました');
       }
       });
-  }).change();
+  });
 </script>

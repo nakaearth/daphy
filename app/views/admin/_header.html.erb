@@ -1,0 +1,14 @@
+<menu>
+  <div class='left_div'>
+    <%= link_to_unless_current 'マイページへ戻る', daphy_job_cards_path, id: 'list_link' %> &nbsp;&nbsp;|
+    <%= link_to_unless_current 'グループ一覧', admin_groups_path, id: 'list_link' %> &nbsp;&nbsp;|
+    <%= link_to_unless_current 'グループ作成', new_admin_group_path %>&nbsp;&nbsp|
+  </div>
+  <div class='right_div'>
+    <%= link_to_unless_current  image_tag(current_user.image_url, size: '40x40'), { action: 'index', controller: 'admin/top' } %>
+    <%= current_user.nickname %>
+    <%= link_to "ログアウト", logout_path  %> 
+  </div>
+</menu>
+<br/><br/>
+<hr/>
