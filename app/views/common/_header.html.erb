@@ -1,6 +1,6 @@
 <menu>
   <div class='left_div'>
-    <%= select_tag 'group_id', options_from_collection_for_select(@groups, :id, :name) %>&nbsp;&nbsp;
+    <%= select_tag 'group_id', options_from_collection_for_select(@groups, :id, :name, @group_id) %>&nbsp;&nbsp;
     <%= link_to_unless_current '一覧', { action: 'index', controller: 'daphy/job_cards' }, id: 'list_link' %> &nbsp;&nbsp;|
     <%= link_to_unless_current '登録', { action: 'new', controller: 'daphy/job_cards' }, id: 'regist_link' %> &nbsp;&nbsp;|
     <%= link_to_unless_current image_tag('trashbox.png', size: '30x30', board: 0, alt: 'ゴミ箱' ), { action: 'trashed', controller: 'daphy/job_cards' }, id: 'trashed_link' %> &nbsp;&nbsp;|
@@ -15,15 +15,15 @@
 <hr/>
 <script type='text/javascript'>
   $("select#group_id").change(function(){
-    $.ajax({
-      type: "GET",
-      url: "/daphy/job_cards?group_id=" + $(this).val(),
-      contentType: 'application/html',
-      dataType: "html",
-      error: function() {
-        alert('グループ毎にタスクを表示するのに失敗しました');
-      }
-      });
+   // $.ajax({
+   //   type: "GET",
+   //   url: "/daphy/job_cards?group_id=" + $(this).val(),
+   //   contentType: 'application/html',
+   //   dataType: "html",
+   //   error: function() {
+   //     alert('グループ毎にタスクを表示するのに失敗しました');
+   //   }
+   //   });
     window.location.href = "/daphy/job_cards?group_id=" + $(this).val();
   });
 </script>
