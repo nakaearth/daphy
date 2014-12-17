@@ -99,6 +99,7 @@ module Daphy
 
     def set_groups
       @groups = current_user.my_groups
+      # @selected_group = Group.find(params[:group_id].presence) || current_user.my_groups[0]
     end
 
     def job_params
