@@ -1,7 +1,5 @@
 FactoryGirl.define do
   factory :friend do
-    user_id "MyString"
-friend_user_ids "MyString"
+    friend_user_ids "1,2,3,4,5,6,7"
   end
-
 end
