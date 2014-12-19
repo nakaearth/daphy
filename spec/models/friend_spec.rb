@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe Friend, type: :model do
   let!(:user) { create(:user) }
   let!(:friend_users) { create_list(:user, 5) }
-  
+
   describe '幾つかのテーブルと関連を持っている' do
     it { expect belong_to(:users) }
   end
-  
+
   describe 'friend_users' do
     before do
       ids = ''
