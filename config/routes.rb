@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'top/index'
     resources :groups
+    resources :friends, only: [:index, :new, :show, :create, :destroy]
   end
 
 
