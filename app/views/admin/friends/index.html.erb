@@ -1,2 +1,9 @@
-<h1>Admin::Frends#index</h1>
-<p>Find me in app/views/admin/frends/index.html.erb</p>
+<table>
+  <%= @friends.each do |friend| %>
+  <tr><td>
+      <%= image_tag(friend.user.image_url, size: '100x100') %><br/>
+      <%= friend.user.name %>
+  </td></tr>
+<% end %>
+</table>
+
