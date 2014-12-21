@@ -5,10 +5,16 @@ module Admin
     render_views
 
     let!(:user) { create(:user) }
+    let!(:friend_users) { create_list(:user, 5) }
 
     before do
       allow(controller).to receive(:current_user) { user }
       allow(controller).to receive(:login?) { true }
+      ids = ''
+      friend_users.each do |f_user|
+        ids += f_user.id.to_s + ','
+      end
+      create(:friend, user: user, friend_user_ids: ids)
     end
 
     describe "GET index" do

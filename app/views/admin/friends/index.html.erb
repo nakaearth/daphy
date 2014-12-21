@@ -1,8 +1,8 @@
 <table>
   <%= @friends.each do |friend| %>
   <tr><td>
-      <%= image_tag(friend.user.image_url, size: '100x100') %><br/>
-      <%= friend.user.name %>
+      <%= image_tag(friend.image_url, size: '100x100') %><br/>
+      <%= friend.name %>
   </td></tr>
 <% end %>
 </table>

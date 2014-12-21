@@ -1,6 +1,7 @@
 module Admin
   class FriendsController < ApplicationController
     def index
+      @friends = current_user.friend.friend_users
     end
 
     def new
