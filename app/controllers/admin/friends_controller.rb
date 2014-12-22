@@ -12,7 +12,7 @@ module Admin
 
     def friend_request
       # 友達申請
-     end
+    end
 
     def create
       ActiveRecord::Base.transaction do
