@@ -26,7 +26,9 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'top/index'
     resources :groups
-    resources :friends, only: [:index, :new, :show, :create, :destroy]
+    resources :friends, only: [:index, :new, :show, :create, :destroy] do
+      post 'friend_request'
+    end
   end
 
 
