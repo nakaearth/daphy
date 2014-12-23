@@ -12,6 +12,12 @@ module Admin
 
     def friend_request
       # 友達申請
+      ActiveRecord::Base.transaction do
+        token = SecureRandom.urlsafe_base64(15)
+        group = Group.find(params[:group_id])
+        EmailToken.create(user: current_user, group: group, token: token)
+      end
+      # メール送信
     end
 
     def create

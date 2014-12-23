@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141219015215) do
+ActiveRecord::Schema.define(version: 20141223025756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "email_tokens", force: true do |t|
+    t.string   "token"
+    t.integer  "user_id",    null: false
+    t.integer  "group_id",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "email_tokens", ["group_id"], name: "index_email_tokens_on_group_id", using: :btree
+  add_index "email_tokens", ["user_id"], name: "index_email_tokens_on_user_id", using: :btree
 
   create_table "friends", force: true do |t|
     t.integer  "user_id",         null: false
