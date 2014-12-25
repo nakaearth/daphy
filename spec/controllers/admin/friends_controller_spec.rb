@@ -17,10 +17,22 @@ module Admin
       create(:friend, user: user, friend_user_ids: ids)
     end
 
-    describe "GET index" do
-      it "returns http success" do
+    describe 'GET index' do
+      before do
         get :index
+      end
+
+      it 'returns http success' do
         expect(response).to have_http_status(:success)
+      end
+
+      it 'render the :index template' do
+        expect(response).to render_template :index
+      end
+
+      it '友達一覧を取得' do
+        expect(assigns[:friends]).not_to be_nil
+        expect(assigns[:friends].count).to eq(5)
       end
     end
 
