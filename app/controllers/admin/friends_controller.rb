@@ -18,6 +18,7 @@ module Admin
         EmailToken.create(user: current_user, group: group, token: token)
       end
       # メール送信
+      InviteGroup.send_mail(params[:email], token).deliver
     end
 
     def create
