@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :email_token do
-    token "MyString"
+    token '123aabbccdd'
   end
 
 end

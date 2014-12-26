@@ -3,7 +3,6 @@ module Admin
     before_action :set_frined, only: [:show, :destroy]
 
     def index
-      Friend.create(user: current_user, friend_user_ids: '') unless current_user.friend
       @friends = current_user.friend.friend_users
     end
 
@@ -22,12 +21,14 @@ module Admin
       InviteGroup.send_mail(params[:email], token).deliver
     end
 
-    def become_friend
+    def become_frined
       ActiveRecord::Base.transaction do
         # メール送付後、トークンテーブルから送ったユーザの情報を取得し、
         # 友達関係をデータにとうろくする
         email_token = EmailToken.find_by(token: params[:token])
-        redirect_to controller: 'sessions', action: 'new' if email_token
+        if email_token
+          redirect_to controller: 'sessions', action: 'new'
+        end
       end
       redirect_to action: :index
     end

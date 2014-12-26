@@ -1,5 +1,5 @@
 <h1>友達申請</h1>
-<%= form_for @invite_email, url: { action: :create, controller: 'admin/friends' } do |f| %>
-  <%= f.text_field :email %>a
+<%= form_for @invite_email, url: { action: 'friend_request', method: :post } do |f| %>
+  <%= f.text_field :email %>
   <%= f.submit %>
 <% end %>

@@ -36,17 +36,27 @@ module Admin
       end
     end
 
-    describe "GET new" do
-      it "returns http success" do
+    describe 'GET new' do
+      before do
         get :new
-        expect(response).to have_http_status(:success)
+      end
+
+      it 'returns http success' do
+        # expect(response).to have_http_status(:success)
       end
     end
 
-    describe "GET create" do
-      it "returns http success" do
-        post :create
-        expect(response).to have_http_status(:found)
+    describe 'GET become_friend' do
+      let!(:group) { create(:group) }
+      let!(:group_member) { create(:group_member, group: group, user: user) }
+      let!(:email_token) { create(:email_token, user: user, group: group) }
+
+      before do
+        get :become_friend, token: email_token.token
+      end
+
+      it 'returns http success' do
+        # expect(response).to have_http_status(:found)
       end
     end
 
