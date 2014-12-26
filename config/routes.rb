@@ -27,8 +27,8 @@ Rails.application.routes.draw do
     get 'top/index'
     resources :groups
     resources :friends, only: [:index, :new, :show, :destroy] do
-      post 'friend_request'
       collection do
+        post 'friend_request'
         get 'become_friend'
       end
     end
