@@ -56,7 +56,7 @@ module Admin
       end
 
       it 'returns http success' do
-        # expect(response).to have_http_status(:found)
+        expect(response).to have_http_status(:found)
       end
     end
 

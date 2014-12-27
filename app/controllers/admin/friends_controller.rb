@@ -27,7 +27,10 @@ module Admin
         # メール送付後、トークンテーブルから送ったユーザの情報を取得し、
         # 友達関係をデータにとうろくする
         email_token = EmailToken.find_by(token: params[:token])
-        redirect_to controller: 'sessions', action: 'new' if email_token
+        friend = email_token.user.friend
+        ids = friend.friend_user_ids.split(',')
+        ids << current_user.id
+        friend.update(friend_user_ids: ids.join(","))
       end
       redirect_to action: :index
     end
