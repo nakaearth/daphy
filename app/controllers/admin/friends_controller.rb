@@ -12,20 +12,16 @@ module Admin
     end
 
     def friend_request
-      # 友達申請
       ActiveRecord::Base.transaction do
         token = SecureRandom.urlsafe_base64(15)
         group = Group.find(params[:group_id])
         EmailToken.create(user: current_user, group: group, token: token)
       end
-      # メール送信
       InviteGroup.send_mail(params[:email], token).deliver
     end
 
     def become_friend
       ActiveRecord::Base.transaction do
-        # メール送付後、トークンテーブルから送ったユーザの情報を取得し、
-        # 友達関係をデータにとうろくする
         email_token = EmailToken.find_by(token: params[:token])
         friend = email_token.user.friend
         ids = friend.friend_user_ids.split(',')
