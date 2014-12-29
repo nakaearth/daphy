@@ -25,8 +25,9 @@ module Admin
         email_token = EmailToken.find_by(token: params[:token])
         friend = email_token.user.friend
         ids = friend.friend_user_ids.split(',')
-        ids << current_user.id
-        friend.update(friend_user_ids: ids.join(","))
+        ids.push(current_user.id)
+        friend.friend_user_ids = ids.join(",")
+        friend.save!
       end
       redirect_to action: :index
     end
