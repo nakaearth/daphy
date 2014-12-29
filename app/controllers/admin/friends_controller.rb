@@ -24,10 +24,8 @@ module Admin
       ActiveRecord::Base.transaction do
         email_token = EmailToken.find_by(token: params[:token])
         friend = email_token.user.friend
-        ids = friend.friend_user_ids.split(',')
-        ids.push(current_user.id)
-        friend.friend_user_ids = ids.join(",")
-        friend.save!
+        friend.become_friend(current_user.id)
+        current_user.friend.become_friend(email_token.user.id)
       end
       redirect_to action: :index
     end
