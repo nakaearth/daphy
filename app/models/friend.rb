@@ -6,7 +6,7 @@ class Friend < ActiveRecord::Base
   end
 
   def become_friend(user_id)
-    ids = self.friend_user_ids.split(',')
+    ids = friend_user_ids.split(',')
     ids.push(user_id)
     self.friend_user_ids = ids.join(",")
     save!
