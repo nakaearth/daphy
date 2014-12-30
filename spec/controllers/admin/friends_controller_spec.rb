@@ -63,7 +63,9 @@ module Admin
 
       it 'friend登録' do
         friend_user.reload
+        user.reload
         expect(friend_user.friend.friend_user_ids.split(',').size).to eq(1)
+        expect(user.friend.friend_user_ids.split(',').size).to eq(6)
       end
     end
 
