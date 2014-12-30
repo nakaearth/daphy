@@ -12,8 +12,8 @@ module Admin
     end
 
     def friend_request
+      token = SecureRandom.urlsafe_base64(15)
       ActiveRecord::Base.transaction do
-        token = SecureRandom.urlsafe_base64(15)
         group = Group.find(params[:group_id])
         EmailToken.create(user: current_user, group: group, token: token)
       end

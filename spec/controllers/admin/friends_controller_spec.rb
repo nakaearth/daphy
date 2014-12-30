@@ -46,6 +46,27 @@ module Admin
       end
     end
 
+    describe 'GET friend_request' do
+      let!(:group) { create(:group) }
+      let!(:friend_user) { create(:user) }
+      let!(:email_token) { create(:email_token, user: friend_user, group: group) }
+
+      before do
+        mail = InviteGroup.send_mail('test@gmail.com', email_token.token)
+        allow(mail).to receive(:deliver).and_return(nil)
+        get :friend_request, email: 'test@gmail.com', group_id: group.id
+      end
+
+      it 'return http success' do
+        expect(response).to have_http_status(:success)
+      end
+
+      it 'EmailTokenに登録されたか' do
+        email_token = EmailToken.find_by(user: user)
+        expect(email_token).not_to be_nil
+      end
+    end
+
     describe 'GET become_friend' do
       let!(:group) { create(:group) }
       let!(:friend_user) { create(:user) }
@@ -57,7 +78,7 @@ module Admin
         get :become_friend, token: email_token.token
       end
 
-      it 'returns http success' do
+      it 'returns http found' do
         expect(response).to have_http_status(:found)
       end
 
