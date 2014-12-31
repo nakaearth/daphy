@@ -17,7 +17,7 @@ module Admin
         group = Group.find(params[:group_id])
         EmailToken.create(user: current_user, group: group, token: token)
       end
-      InviteGroup.send_mail(params[:email], token).deliver
+      FriendRequest.send_mail(params[:email], token).deliver
     end
 
     def become_friend
