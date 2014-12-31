@@ -42,6 +42,15 @@ module Admin
       redirect_to action: :index
     end
 
+    def members
+      @users = @group.group_member_users
+      @friends = current_user.friend.friend_users
+    end
+
+    def invite
+      redirect_to action :index
+    end
+
     private
 
     def set_group
