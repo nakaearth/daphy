@@ -43,7 +43,7 @@ module Admin
     end
 
     def members
-      @users = @group.group_member_users
+      # TODO: すでにgroupメンバーのものは除くようにする
       @friends = current_user.friend.friend_users
     end
 
