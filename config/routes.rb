@@ -25,7 +25,11 @@ Rails.application.routes.draw do
   
   namespace :admin do
     get 'top/index'
-    resources :groups
+    resources :groups, only: [:index, :show, :new, :create, :update, :edit, :destroy] do
+      member do
+        put 'invite'
+      end
+    end
     resources :friends, only: [:index, :new, :show, :destroy] do
       collection do
         post 'friend_request'

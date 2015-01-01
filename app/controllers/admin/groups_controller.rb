@@ -7,6 +7,8 @@ module Admin
     end
 
     def show
+      # TODO: すでにgroupメンバーのものは除くようにする
+      @friends = current_user.friend.friend_users
     end
 
     def new
@@ -40,11 +42,6 @@ module Admin
     def destroy
       @group.destroy
       redirect_to action: :index
-    end
-
-    def members
-      # TODO: すでにgroupメンバーのものは除くようにする
-      @friends = current_user.friend.friend_users
     end
 
     def invite
