@@ -34,6 +34,13 @@ module Admin
     end
 
     def destroy
+      @friend.destroy
+    end
+
+    def delete_relationship(friend_id)
+      ids = @friend.friend_user_id_list.select { |arr| arr != friend_id }
+      @friend.friend_user_ids = ids.join(',')
+      @friend.save!
     end
 
     private
