@@ -7,6 +7,7 @@ module Admin
     end
 
     def show
+      @members = @group.group_member_users
       # TODO: すでにgroupメンバーのものは除くようにする
       @friends = current_user.friend.friend_users
     end
