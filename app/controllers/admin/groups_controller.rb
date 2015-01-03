@@ -9,7 +9,7 @@ module Admin
     def show
       @members = @group.group_member_users
       # TODO: すでにgroupメンバーのものは除くようにする
-      @friends = current_user.friend.friend_users
+      @friends = User.where(id: @group.group_members.not_group_member(current_user.friend.friend_user_id_list))
     end
 
     def new
