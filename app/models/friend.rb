@@ -6,7 +6,7 @@ class Friend < ActiveRecord::Base
   end
 
   def friend_users
-    User.where(id: friend_user_ids.split(',')).order(id: :desc)
+    User.where(id: friend_user_id_list).order(id: :desc)
   end
 
   def become_friend(user_id)

@@ -24,5 +24,9 @@ RSpec.describe Friend, type: :model do
     it '友達の情報が取得できる' do
       expect((@friend.friend_users)[0]).to eq(friend_users[4])
     end
+
+    it 'friend_user_id_listでuser_idの配列が取得できる' do
+      expect(@friend.friend_user_id_list.size).to eq(5)
+    end
   end
 end
