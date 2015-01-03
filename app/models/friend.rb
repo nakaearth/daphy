@@ -2,7 +2,7 @@ class Friend < ActiveRecord::Base
   belongs_to :user
 
   def friend_user_id_list
-     friend_user_ids.split(',')
+    friend_user_ids.split(',')
   end
 
   def friend_users
