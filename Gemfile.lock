@@ -252,7 +252,10 @@ GEM
       ast (>= 1.1, < 3.0)
       slop (~> 3.4, >= 3.4.5)
     pg (0.17.1)
+    pluginator (1.3.0)
     powerpack (0.0.9)
+    pre-commit (0.22.1)
+      pluginator (~> 1.1)
     pry (0.9.12.6)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -523,6 +526,7 @@ DEPENDENCIES
   omniauth-twitter
   parser (= 2.2.0.pre.8)
   pg
+  pre-commit
   pry-byebug
   pry-doc
   pry-rails
