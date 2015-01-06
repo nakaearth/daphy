@@ -1,0 +1,15 @@
+---
+:checks_remove:
+- :jshint
+:checks_add:
+- :rubocop
+- :tabs
+- :merge_conflict
+- :debugger
+- :pry
+- :coffeelint
+- :console_log
+- :migration
+:warnings_remove: []
+:warnings_add:
+- :jshint
