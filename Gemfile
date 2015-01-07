@@ -81,6 +81,8 @@ group :development, :test do
   # 静的解析
   gem 'rubycritic', require: false
   gem 'brakeman', require: false
+
+  gem 'pre-commit'
 end
 
 group :development, :test do
@@ -90,6 +92,7 @@ group :development, :test do
   gem 'guard-spring'
   gem 'guard-rubocop'
   gem 'terminal-notifier-guard'
+
 end
 
 group :development do
@@ -143,4 +146,3 @@ gem 'compass-rails'
 gem 'parser', '2.2.0.pre.8'
 
 gem 'resque'
-gem 'pre-commit'
