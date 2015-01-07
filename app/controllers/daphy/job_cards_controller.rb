@@ -22,10 +22,9 @@ module Daphy
 
     def create
       ActiveRecord::Base.transaction do
-        job_card = JobCard.new(job_params)
-        job_card.type = :todo
-        job_card.user = current_user
+        job_card = current_user.my_job_cards.build(job_params)
         job_card.group = current_user.my_groups[0]
+        job_card.type = :todo
         if job_card.save!
           flash[:notice] = "#{job_card.title}を追加しました"
           redirect_to action: :index
