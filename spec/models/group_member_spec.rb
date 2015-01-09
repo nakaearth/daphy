@@ -5,5 +5,8 @@ RSpec.describe GroupMember, type: :model do
 
   describe 'not_group_member' do
     # 引数で渡されたユーザの一覧からグループメンバー分を覗いたmono
+    context 'グループメンバーが含まれている場合' do
+      #
+    end
   end
 end

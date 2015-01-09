@@ -5,7 +5,7 @@ describe User, type: :model do
 
   describe '幾つかのテーブルと関連を持っている' do
     context 'have a relation to user class' do
-      # it { expect has_many_to(:group_members) }
+      it { expect have_many(:group_members) }
     end
   end
 
