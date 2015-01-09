@@ -113,5 +113,9 @@ module Daphy
         params.require(:doing).permit(:title, :description, :point) if params[:doing]
       end
     end
+
+    def job_card_class
+      params[:type].constantize
+    end
   end
 end

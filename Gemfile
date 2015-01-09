@@ -83,7 +83,7 @@ group :development, :test do
   gem 'rubycritic', require: false
   gem 'brakeman', require: false
 
-  gem 'pre-commit'
+  # gem 'pre-commit'
 end
 
 group :development, :test do
