@@ -25,7 +25,7 @@ class JobCard < ActiveRecord::Base
     [Base64.encode64(id.to_s)]
   end
 
-  def to_params
+  def to_param
     [Base64.encode64(id.to_s)]
   end
 end
