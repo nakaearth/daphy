@@ -20,4 +20,12 @@ class JobCard < ActiveRecord::Base
   scope :doings, -> { doing }
   scope :dones, -> { done }
   scope :trashes, -> { trashed }
+
+  def to_key
+    [Base64.encode64(id.to_s)]
+  end
+
+  def to_params
+    [Base64.encode64(id.to_s)]
+  end
 end

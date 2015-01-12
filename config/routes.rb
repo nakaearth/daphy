@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get "/auth/failure" => "sessions#failuer"
 
   namespace :daphy do
-    resources :job_cards do
+    resources :job_cards, param: :encoded_id do
       collection do
         get 'trashed'
         delete 'remove_all'

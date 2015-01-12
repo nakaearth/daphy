@@ -93,12 +93,11 @@ module Daphy
     private
 
     def set_job_card
-      @job_card = JobCard.find(params[:id])
+      @job_card = JobCard.find(Base64.decode64(params[:encoded_id]))
     end
 
     def set_groups
       @groups = current_user.my_groups
-      # @selected_group = Group.find(params[:group_id].presence) || current_user.my_groups[0]
       @group_id = params[:group_id].presence || current_user.my_groups[0].id
     end
 

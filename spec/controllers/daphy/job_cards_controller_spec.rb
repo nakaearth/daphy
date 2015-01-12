@@ -57,7 +57,7 @@ module Daphy
 
     describe 'GET edit' do
       before do
-        get :edit, id: todo_list[0].id, type: 'Todo'
+        get :edit, encoded_id: Base64.encode64(todo_list[0].id.to_s), type: 'Todo'
       end
 
       it 'returns http success' do
@@ -67,7 +67,7 @@ module Daphy
 
     describe 'GET show' do
       it 'returns http success' do
-        get :show, id: todo_list[1].id, type: 'Todo'
+        get :show, encoded_id: Base64.encode64(todo_list[1].id.to_s), type: 'Todo'
         expect(response).to have_http_status(:success)
       end
     end
@@ -109,7 +109,7 @@ module Daphy
     describe 'PUT update' do
       context 'typeがtodoの項目の更新' do
         before do
-          params = { id: todo_list[0].id, todo: { title: 'test_2', description: 'hogehoge\nhoge2', point: 2 } }
+          params = { encoded_id: Base64.encode64(todo_list[0].id.to_s), todo: { title: 'test_2', description: 'hogehoge\nhoge2', point: 2 } }
           put :update, params
         end
 
@@ -127,7 +127,7 @@ module Daphy
 
       context 'typeがdoingの項目の更新' do
         before do
-          params = { id: doing_list[0].id, doing: { title: 'test_3', description: 'hogehoge\nhoge3', point: 2 } }
+          params = { encoded_id: Base64.encode64(doing_list[0].id.to_s), doing: { title: 'test_3', description: 'hogehoge\nhoge3', point: 2 } }
           put :update, params
         end
 
@@ -145,7 +145,7 @@ module Daphy
 
       context '入力エラーがある場合' do
         before do
-          @params = { id: todo_list[0], todo: { description: 'hogehoge\nhoge', point: 1 } }
+          @params = { encoded_id: Base64.encode64(todo_list[0].id.to_s), todo: { description: 'hogehoge\nhoge', point: 1 } }
         end
 
         it '画面表示される画面' do
@@ -163,7 +163,7 @@ module Daphy
     describe 'PUT recovery' do
       context '更新が正常にできるか' do
         before do
-          params = { id: trashed_list[0].id }
+          params = { encoded_id: Base64.encode64(trashed_list[0].id.to_s) }
           put :recovery, params
         end
 
@@ -183,7 +183,7 @@ module Daphy
     describe 'DELETE remove' do
       context '削除が正常にできるか' do
         before do
-          params = { id: trashed_list[0].id }
+          params = { encoded_id: Base64.encode64(trashed_list[0].id.to_s) }
           delete :remove, params
         end
 
