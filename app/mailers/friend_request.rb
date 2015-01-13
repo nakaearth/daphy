@@ -3,9 +3,10 @@ class FriendRequest < ActionMailer::Base
 
   def send_mail(to, token)
     @token = token
+    @to = to
     mail(
       from: 'daphy@gmail.com',
-      to:      to,
+      to:      @to,
       subject: '[daphy]:友達申請メール'
     ) do |format|
       format.html
