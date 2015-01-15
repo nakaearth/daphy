@@ -34,6 +34,7 @@ Rails.application.routes.draw do
       collection do
         post 'friend_request'
         get 'become_friend'
+        get 'delete_relationship'
       end
     end
   end
