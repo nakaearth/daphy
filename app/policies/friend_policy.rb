@@ -1,0 +1,2 @@
+class FriendPolicy < ApplicationPolicy
+end

@@ -1,6 +1,6 @@
 module Admin
   class FriendsController < ApplicationController
-    before_action :set_frined, only: [:show, :destroy]
+    before_action :set_frined, only: [:show, :destroy, :delete_relationship]
 
     def index
       Friend.create(user: current_user, friend_user_ids: '') unless current_user.friend
@@ -37,7 +37,8 @@ module Admin
       @friend.destroy
     end
 
-    def delete_relationship(friend_id)
+    def delete_relationship
+      # authorize @friend
       friend_id = params[:friend_id]
       ids = @friend.friend_user_id_list.select { |arr| arr != friend_id }
       @friend.friend_user_ids = ids.join(',')
