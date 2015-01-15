@@ -17,10 +17,10 @@ module Daphy
       g.view_specs true
       g.controller_specs true
       g.routing_specs true
-      g.helper_specs true
+      g.helper_specs false
       g.request_specs true
       g.assets true
-      g.helper true
+      g.helper false
     end
     
     # Settings in config/environments/* take precedence over those specified here.
