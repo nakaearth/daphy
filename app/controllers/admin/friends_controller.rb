@@ -34,6 +34,7 @@ module Admin
     end
 
     def destroy
+      authorize @friend
       @friend.destroy
     end
 
