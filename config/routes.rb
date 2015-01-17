@@ -33,7 +33,8 @@ Rails.application.routes.draw do
     resources :friends, only: [:index, :new, :show, :destroy] do
       collection do
         post 'friend_request'
-        get 'become_friend'
+        get 'accept_friend_request'
+        post 'become_friend'
         get 'delete_relationship'
       end
     end
