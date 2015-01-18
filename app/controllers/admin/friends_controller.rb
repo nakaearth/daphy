@@ -24,21 +24,14 @@ module Admin
       email_token = EmailToken.find_by(token: params[:token])
 
       # TODO: ともだち申請テーブルに登録
-      FriendRequest.create!(user: current_user, request_from_user: email_token.user)
+      FriendRequestRegistration.create!(user: current_user, request_from_user: email_token.user)
 
       # ログイン&ユーザ登録
       redirect_to '/auth/' + (Rails.env.production? ? 'twitter' : 'developer')
     end
 
     def become_friend
-      ActiveRecord::Base.transaction do
-        email_token = EmailToken.find_by(token: params[:token])
-        friend = email_token.user.friend
-        friend.become_friend(current_user.id)
-        current_user.friend.become_friend(email_token.user.id)
-
-        # TODO: 友達申請テーブルから削除
-      end
+      Friends::BecomeFriendService.new.become_friend(params[:friend_request_id])
       redirect_to action: :index
     end
 

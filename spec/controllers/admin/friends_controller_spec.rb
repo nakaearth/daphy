@@ -72,10 +72,10 @@ module Admin
       let!(:friend_user) { create(:user) }
       let!(:friend2) { create(:friend, user: friend_user, friend_user_ids: '') }
       let!(:group_member) { create(:group_member, group: group, user: user) }
-      let!(:email_token) { create(:email_token, user: friend_user, group: group) }
+      let!(:friend_request) { create(:friend_request, user: friend_user, request_from_user: user.id) }
 
       before do
-        get :become_friend, token: email_token.token
+        post :become_friend, friend_request_id: friend_request.id
       end
 
       it 'returns http found' do
