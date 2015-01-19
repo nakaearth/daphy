@@ -7,7 +7,7 @@ module Admin
     let!(:user) { create(:user) }
     let!(:friend_users) { create_list(:user, 5) }
 
-    before do
+    before(:all) do
       allow(controller).to receive(:current_user) { user }
       allow(controller).to receive(:login?) { true }
       ids = ''
@@ -90,6 +90,20 @@ module Admin
       end
     end
 
+    describe 'GET accept_friend_request' do
+      let!(:group) { create(:group) }
+      let!(:friend_user) { create(:user) }
+      let!(:email_token) { create(:email_token, user: user, group: group) }
+
+      before do
+        get :accept_friend_request, token: email_token.token
+      end
+
+      it 'friend_request_registrationテーブルにデータが登録される' do
+        FriendUserRegistration.where(user: user)
+      end
+    end
+
     describe "GET show" do
       it "returns http success" do
         get :show, id: user.friend.id
@@ -99,8 +113,8 @@ module Admin
 
     describe "GET destroy" do
       it "returns http success" do
-        # delete :destroy
-        # expect(response).to have_http_status(:success)
+        delete :destroy, id: user.friend.id
+        expect(response).to have_http_status(:success)
       end
     end
 

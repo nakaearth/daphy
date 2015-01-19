@@ -30,6 +30,7 @@ Rails.application.routes.draw do
         put 'invite'
       end
     end
+
     resources :friends, only: [:index, :new, :show, :destroy] do
       collection do
         post 'friend_request'

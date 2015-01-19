@@ -1,7 +1,6 @@
 module Friends
   class BecomeFriendService
     def become_friend(friend_request_id)
-      # ここにしょりを書く
       ActiveRecord::Base.transaction do
         friend_request = FriendRequestRegistration.find(friend_request_id)
         friend_request.user.friend.become_friend(friend_request.request_from_user)

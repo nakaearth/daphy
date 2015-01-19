@@ -25,7 +25,7 @@ module Admin
 
       # TODO: ともだち申請テーブルに登録
       FriendRequestRegistration.create!(user: current_user, request_from_user: email_token.user)
-
+      eimail_token.destroy
       # ログイン&ユーザ登録
       redirect_to '/auth/' + (Rails.env.production? ? 'twitter' : 'developer')
     end
