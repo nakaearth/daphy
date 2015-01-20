@@ -28,5 +28,9 @@ RSpec.describe Friend, type: :model do
     it 'friend_user_id_listでuser_idの配列が取得できる' do
       expect(@friend.friend_user_id_list.size).to eq(5)
     end
+
+    it 'userのnameに対しdelegateを追加' do
+      expect(@friend.name).to eq(@friend.user.name)
+    end
   end
 end
