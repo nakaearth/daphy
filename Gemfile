@@ -147,3 +147,5 @@ gem 'compass-rails'
 gem 'parser', '2.2.0.pre.8'
 
 gem 'resque'
+
+gem 'active_hash'
