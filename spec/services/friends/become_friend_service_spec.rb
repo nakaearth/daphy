@@ -22,9 +22,13 @@ module Friends
         Friends::BecomeFriendService.new.become_friend(friend_request)
       end
 
-      it 'ユーザ同士になる' do
+      it '友達になる' do
         friend.reload
         expect(friend.friend_user_ids.split(',').count).to eq(6)
+      end
+
+      it 'friend_requestからデータが削除される' do
+        expect(FriendRequestRegistration.exists?(user: friend_user, request_from_user: user.id)).to be_falsy
       end
     end
   end

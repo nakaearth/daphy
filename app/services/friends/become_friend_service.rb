@@ -6,7 +6,6 @@ module Friends
         friend_request.user.friend.become_friend(friend_request.request_from_user)
         user = User.find(friend_request.request_from_user)
         user.friend.become_friend(friend_request.user.id)
-        # TODO: 友達申請テーブルから削除
         friend_request.destroy
       end
     end
