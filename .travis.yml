@@ -5,7 +5,7 @@ rvm:
 gemfile:
 - Gemfile
 env:
-- DB=sqlite
+- DB=postgresql
 branches:
   only:
   - master
@@ -19,6 +19,7 @@ before_install: gem update bundler
 before_script:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
+- psql -c 'create database daphy_test'
 - RAILS_ENV=test bundle exec rake db:schema:load
 after_failure:
 - bundle exec rake --version

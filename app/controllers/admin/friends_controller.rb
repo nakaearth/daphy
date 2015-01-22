@@ -20,7 +20,7 @@ module Admin
       FriendRequest.send_mail(params[:email], token).deliver
     end
 
-    def accept_friend_request
+    def confirm_friend_request
       email_token = EmailToken.find_by(token: params[:token])
 
       # TODO: ともだち申請テーブルに登録
@@ -29,6 +29,10 @@ module Admin
       # ログイン&ユーザ登録
       redirect_to '/auth/' + (Rails.env.production? ? 'twitter' : 'developer')
     end
+
+   def friend_request_registrations
+     @friend_request_registrations = current_user.friend_request_registrations 
+   end
 
     def become_friend
       Friends::BecomeFriendService.new.become_friend(params[:friend_request_id])
