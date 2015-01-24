@@ -67,6 +67,19 @@ module Admin
       end
     end
 
+    describe 'GET confirm_friend_request' do
+      let!(:friend_user) { create(:user) }
+      let!(:friend_user_registration) { create(:friend_request, user: user, request_from_user: friend_user.id) }
+
+      before do
+        get :confirm_freind_request
+      end
+
+      it 'show friend list' do
+        expect(assigns[:friend_request_registrations].count).to eq(1)
+      end
+    end
+
     describe 'GET become_friend' do
       let!(:group) { create(:group) }
       let!(:friend_user) { create(:user) }

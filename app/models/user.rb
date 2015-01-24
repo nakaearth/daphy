@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :my_groups, through: :group_members, source: :group
   has_many :my_job_cards, class_name: JobCard, inverse_of: :user
   has_one :friend, dependent: :destroy
+  has_maney :friend_request_registrations
 
   validates :name, presence: true, length: { maximum: 60 }
   validates :uid, presence: true
