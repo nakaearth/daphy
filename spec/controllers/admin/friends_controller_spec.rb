@@ -7,7 +7,7 @@ module Admin
     let!(:user) { create(:user) }
     let!(:friend_users) { create_list(:user, 5) }
 
-    before(:all) do
+    before do
       allow(controller).to receive(:current_user) { user }
       allow(controller).to receive(:login?) { true }
       ids = ''

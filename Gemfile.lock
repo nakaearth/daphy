@@ -540,6 +540,7 @@ DEPENDENCIES
   request_store
   resque
   rmagick
+  rspec-mocks
   rspec-rails
   rspec-request_describer
   rubocop (~> 0.23)
