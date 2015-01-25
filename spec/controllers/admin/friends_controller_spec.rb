@@ -69,14 +69,37 @@ module Admin
 
     describe 'GET confirm_friend_request' do
       let!(:friend_user) { create(:user) }
-      let!(:friend_user_registration) { create(:friend_request, user: user, request_from_user: friend_user.id) }
+      let!(:email_token) { create(:email_token, user: friend_user, group: create(:group)) }
+      let!(:friend_user_registration) { create(:friend_request_registration, user: user, request_from_user: friend_user.id) }
 
       before do
-        get :confirm_freind_request
+        get :confirm_friend_request, token: email_token.token
+      end
+      
+      it 'return http success' do
+        expect(response).to have_http_status(:found)
+      end
+
+      it 'show friend user attribte' do
+        expect(EmailToken.exists?(id: email_token.id)).to be_falsy
+      end
+    end
+
+    describe 'GET friend_request_registrations' do
+      let!(:friend_user) { create(:user) }
+      let!(:email_token) { create(:email_token, user: friend_user, group: create(:group)) }
+      let!(:friend_user_registration) { create(:friend_request_registration, user: user, request_from_user: friend_user.id) }
+
+      before do
+        get :friend_request_registrations
       end
 
       it 'show friend list' do
         expect(assigns[:friend_request_registrations].count).to eq(1)
+      end
+
+      it 'show friend user attribte' do
+        expect(assigns[:friend_request_registrations][0].name).to eq(friend_user.name)
       end
     end
 
@@ -85,7 +108,7 @@ module Admin
       let!(:friend_user) { create(:user) }
       let!(:friend2) { create(:friend, user: friend_user, friend_user_ids: '') }
       let!(:group_member) { create(:group_member, group: group, user: user) }
-      let!(:friend_request) { create(:friend_request, user: friend_user, request_from_user: user.id) }
+      let!(:friend_request) { create(:friend_request_registration, user: friend_user, request_from_user: user.id) }
 
       before do
         post :become_friend, friend_request_id: friend_request.id
@@ -103,20 +126,6 @@ module Admin
       end
     end
 
-    describe 'GET accept_friend_request' do
-      let!(:group) { create(:group) }
-      let!(:friend_user) { create(:user) }
-      let!(:email_token) { create(:email_token, user: user, group: group) }
-
-      before do
-        get :accept_friend_request, token: email_token.token
-      end
-
-      it 'friend_request_registrationテーブルにデータが登録される' do
-        FriendUserRegistration.where(user: user)
-      end
-    end
-
     describe "GET show" do
       it "returns http success" do
         get :show, id: user.friend.id
@@ -127,7 +136,7 @@ module Admin
     describe "GET destroy" do
       it "returns http success" do
         delete :destroy, id: user.friend.id
-        expect(response).to have_http_status(:success)
+        expect(response).to have_http_status(:found)
       end
     end
 

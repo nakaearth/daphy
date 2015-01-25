@@ -24,8 +24,8 @@ module Admin
       email_token = EmailToken.find_by(token: params[:token])
 
       # TODO: ともだち申請テーブルに登録
-      FriendRequestRegistration.create!(user: current_user, request_from_user: email_token.user)
-      eimail_token.destroy
+      FriendRequestRegistration.create(user: current_user, request_from_user: email_token.user.id)
+      email_token.destroy
       # ログイン&ユーザ登録
       redirect_to '/auth/' + (Rails.env.production? ? 'twitter' : 'developer')
     end
@@ -45,6 +45,7 @@ module Admin
     def destroy
       authorize @friend
       @friend.destroy
+      redirect_to action: :index
     end
 
     def delete_relationship
