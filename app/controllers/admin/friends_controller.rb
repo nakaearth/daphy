@@ -30,9 +30,9 @@ module Admin
       redirect_to '/auth/' + (Rails.env.production? ? 'twitter' : 'developer')
     end
 
-   def friend_request_registrations
-     @friend_request_registrations = current_user.friend_request_registrations 
-   end
+    def request_registrations
+      @friend_request_registrations = current_user.friend_request_registrations
+    end
 
     def become_friend
       Friends::BecomeFriendService.new.become_friend(params[:friend_request_id])

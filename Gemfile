@@ -150,3 +150,6 @@ gem 'parser', '2.2.0.pre.8'
 gem 'resque'
 
 gem 'active_hash'
+
+# 暗号化
+gem 'attr_encrypted'

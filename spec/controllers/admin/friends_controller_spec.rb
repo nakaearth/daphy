@@ -75,7 +75,7 @@ module Admin
       before do
         get :confirm_friend_request, token: email_token.token
       end
-      
+
       it 'return http success' do
         expect(response).to have_http_status(:found)
       end
@@ -85,13 +85,13 @@ module Admin
       end
     end
 
-    describe 'GET friend_request_registrations' do
+    describe 'GET request_registrations' do
       let!(:friend_user) { create(:user) }
       let!(:email_token) { create(:email_token, user: friend_user, group: create(:group)) }
       let!(:friend_user_registration) { create(:friend_request_registration, user: user, request_from_user: friend_user.id) }
 
       before do
-        get :friend_request_registrations
+        get :request_registrations
       end
 
       it 'show friend list' do

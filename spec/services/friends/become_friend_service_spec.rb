@@ -15,7 +15,7 @@ module Friends
     end
     let!(:friend2) { create(:friend, user: friend_user, friend_user_ids: '') }
     let!(:group_member) { create(:group_member, group: group, user: user) }
-    let!(:friend_request) { create(:friend_request, user: friend_user, request_from_user: user.id) }
+    let!(:friend_request) { create(:friend_request_registration, user: friend_user, request_from_user: user.id) }
 
     context '友達になる' do
       before do
