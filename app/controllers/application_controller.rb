@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   include Pundit
 
   before_action :login?
+  before_action :record_application_log
   helper_method :current_user
   rescue_from ActiveRecord::RecordNotFound, with: :render_404
   rescue_from ActionController::RoutingError, with: :render_404
@@ -18,6 +19,10 @@ class ApplicationController < ActionController::Base
 
   def login?
     redirect_to :root if session[:user_id].blank?
+  end
+
+  def record_application_log
+    logger.info "{ action: #{action_name}, execute_time: #{Time.zone.now} }"
   end
 
   def render_404
