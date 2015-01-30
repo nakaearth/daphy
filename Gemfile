@@ -153,3 +153,6 @@ gem 'active_hash'
 
 # 暗号化
 gem 'attr_encrypted'
+
+# log解析
+gem 'fluentd'
