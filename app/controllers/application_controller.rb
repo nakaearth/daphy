@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def record_application_log
-    Rails.application.config.access_logger.info "{ 'controller': '#{controller_name}', 'action': '#{action_name}', 'execute_time': '#{Time.zone.now}' }"
+    logger.info "{ 'controller': '#{controller_name}', 'action': '#{action_name}', 'execute_time': '#{Time.zone.now}' }"
   end
 
   def render_404

@@ -18,7 +18,6 @@ Rails.application.configure do
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
-  config.access_logger = Logger.new(Rails.root.join('log/access.log'))
   
   config.action_mailer.default_url_options = { :host => "localhost:3000" }
 
