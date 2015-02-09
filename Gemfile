@@ -156,3 +156,5 @@ gem 'attr_encrypted'
 
 # log解析
 gem 'fluentd'
+gem 'act-fluent-logger-rails'
+gem 'lograge'
