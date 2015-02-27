@@ -2,13 +2,14 @@ require 'rails_helper'
 
 module Users
   describe Registration do
-    let(:group) { create(:group) }
     let(:user) { create(:user) }
 
     describe 'twitter登録処理を追加' do
+      subject { Users::Registration.new.regist(auth) }
+
       let(:auth) do
-        { provider: 'twitter', uid: '11223344aaaa',
-          info: { name: 'test user', email: 'test@gmail.com' },
+        { provider: 'twitter', uid: uid,
+          info: { name: name, email: email },
           extra: { raw_info:
             { nickname: 'hoge user', image: 'http://test.jp/tes.jpg' }
         },
@@ -17,19 +18,24 @@ module Users
       end
 
       context 'twitterアカウントの登録' do
-        before do
-          User.create_account auth
-        end
+        let(:uid) { '11223344aaaa' }
+        let(:email) { 'test@gmail.com' } 
+        let(:name) { 'test user' }
 
         it 'ユーザが登録される' do
-          test_user = User.find_by(uid: '11223344aaaa')
-          expect(test_user).not_to be_nil
-          expect(test_user.email).to eq('test@gmail.com')
+          is_expected.not_to be_nil
+          expect(subject.email).to eq('test@gmail.com')
         end
+      end
 
-        it 'groupも登録される' do
-          test_user = User.find_by(uid: '11223344aaaa')
-          expect(test_user.my_groups[0].name).to eq(test_user.name + ' group')
+      context '既に登録済みの場合' do
+        let(:email) { user.email }
+        let(:uid) { user.uid }
+        let(:name) { user.name }
+
+        it '既に登録済みのユーザ情報を返す' do
+          expect(subject.email).to eq(user.email)
+          expect(subject.name).to eq(user.name)
         end
       end
     end
