@@ -2,11 +2,11 @@ require 'rails_helper'
 
 module Users
   describe Registration do
-    let!(:group) { create(:group) }
-    let!(:user) { create(:user) }
+    let(:group) { create(:group) }
+    let(:user) { create(:user) }
 
     describe 'twitter登録処理を追加' do
-      let!(:auth) do
+      let(:auth) do
         { provider: 'twitter', uid: '11223344aaaa',
           info: { name: 'test user', email: 'test@gmail.com' },
           extra: { raw_info:
