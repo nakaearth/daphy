@@ -129,6 +129,14 @@ GEM
     diff-lcs (1.2.5)
     docile (1.1.5)
     dotenv (0.7.0)
+    elasticsearch (1.0.6)
+      elasticsearch-api (= 1.0.6)
+      elasticsearch-transport (= 1.0.6)
+    elasticsearch-api (1.0.6)
+      multi_json
+    elasticsearch-transport (1.0.6)
+      faraday
+      multi_json
     encryptor (1.3.0)
     equalizer (0.0.9)
     erubis (2.7.0)
@@ -153,6 +161,10 @@ GEM
     fluent-logger (0.4.9)
       msgpack (>= 0.4.4, < 0.6.0, != 0.5.3, != 0.5.2, != 0.5.1, != 0.5.0)
       yajl-ruby (~> 1.0)
+    fluent-plugin-elasticsearch (0.7.0)
+      elasticsearch
+      fluentd (>= 0.10.43)
+      patron (~> 0)
     fluentd (0.12.4)
       cool.io (>= 1.2.2, < 2.0.0)
       http_parser.rb (>= 0.5.1, < 0.7.0)
@@ -275,6 +287,7 @@ GEM
     parser (2.2.0.pre.8)
       ast (>= 1.1, < 3.0)
       slop (~> 3.4, >= 3.4.5)
+    patron (0.4.20)
     pg (0.17.1)
     powerpack (0.0.9)
     pry (0.9.12.6)
@@ -535,6 +548,7 @@ DEPENDENCIES
   database_rewinder
   did_you_mean
   factory_girl_rails
+  fluent-plugin-elasticsearch
   fluentd
   font-awesome-rails
   foreman

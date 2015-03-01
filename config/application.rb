@@ -36,7 +36,7 @@ module Daphy
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :ja
 
-    # fluentD
+    # fluentd
     config.log_level = :info
     config.logger = ActFluentLoggerRails::Logger.new
     config.lograge.enabled = true
