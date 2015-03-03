@@ -28,4 +28,8 @@ class JobCard < ActiveRecord::Base
   def to_param
     [Base64.encode64(id.to_s)]
   end
+
+  def past_the_fixed_date?
+    Date.today > fixed_at
+  end
 end
