@@ -27,8 +27,8 @@ describe JobCard, type: :model do
     end
   end
 
-  describe 'Type毎の登録を確認' do
-    context 'todoの場合' do
+  describe 'type value test' do
+    context 'type is todo' do
       before do
         @todo = JobCard.new(title: 'テスト', description: 'これはテスト', point: 1,  user: user, group: group)
         @todo.type = :todo
@@ -40,7 +40,7 @@ describe JobCard, type: :model do
       end
     end
 
-    context 'doingの場合' do
+    context 'type is doing' do
       before do
         @doing = JobCard.new(title: 'テストdoing', description: 'これもテスト', point: 2, user: user, group: group)
         @doing.type = :doing
@@ -52,7 +52,7 @@ describe JobCard, type: :model do
       end
     end
 
-    context 'doneの場合' do
+    context 'type is done' do
       before do
         @done = JobCard.new(title: 'テストdoing', description: 'これもテスト', point: 2, user: user, group: group)
         @done.type = :done
@@ -62,6 +62,25 @@ describe JobCard, type: :model do
       it 'typeカラムにdoneがセットされている' do
         expect(@done.done?).to be_truthy
       end
+    end
+  end
+
+  describe '#job.past_the_fixed_date?' do
+    subject { job_card.past_the_fixed_date? }
+    let(:user) { create(:user) }
+    let(:group) { create(:group) }
+    let(:job_card) { create(:job_card, fixed_at: fixed_at, user: user, group: group) }
+
+    context 'fixed_at is not past' do
+      let(:fixed_at) { Date.today.next_day(1) }
+
+      it { is_expected.to be_falsy }
+    end
+
+    context 'fixed_at is past' do
+      let(:fixed_at) { Date.today.prev_day(1) }
+
+      it { is_expected.to be_truthy }
     end
   end
 end
