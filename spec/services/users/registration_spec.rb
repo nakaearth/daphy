@@ -19,7 +19,7 @@ module Users
 
       context 'twitterアカウントの登録' do
         let(:uid) { '11223344aaaa' }
-        let(:email) { 'test@gmail.com' } 
+        let(:email) { 'test@gmail.com' }
         let(:name) { 'test user' }
 
         it 'ユーザが登録される' do

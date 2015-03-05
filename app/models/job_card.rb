@@ -29,7 +29,7 @@ class JobCard < ActiveRecord::Base
     [Base64.encode64(id.to_s)]
   end
 
-  def past_the_fixed_date?
-    Date.today > fixed_at
+  def schedule_day_overdue?
+    Date.current > fixed_at
   end
 end
