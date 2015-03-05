@@ -56,6 +56,7 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'rspec-rails'
   gem 'rspec-mocks'
+  # rakeのテスト用
   gem 'rake_shared_context'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
