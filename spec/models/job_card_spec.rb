@@ -65,20 +65,20 @@ describe JobCard, type: :model do
     end
   end
 
-  describe '#job.past_the_fixed_date?' do
-    subject { job_card.past_the_fixed_date? }
+  describe '#job.schedule_day_overdue?' do
+    subject { job_card.schedule_day_overdue? }
     let(:user) { create(:user) }
     let(:group) { create(:group) }
     let(:job_card) { create(:job_card, fixed_at: fixed_at, user: user, group: group) }
 
     context 'fixed_at is not past' do
-      let(:fixed_at) { Date.today.next_day(1) }
+      let(:fixed_at) { Date.current.next_day(1) }
 
       it { is_expected.to be_falsy }
     end
 
     context 'fixed_at is past' do
-      let(:fixed_at) { Date.today.prev_day(1) }
+      let(:fixed_at) { Date.current.prev_day(1) }
 
       it { is_expected.to be_truthy }
     end

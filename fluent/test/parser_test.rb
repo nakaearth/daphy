@@ -1,5 +1,3 @@
-$:.unshift(File.dirname(__FILE__))
-
 require 'fluent/configurable'
 require 'fluent/config'
 require 'fluent/parser'
