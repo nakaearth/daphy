@@ -1,14 +1,9 @@
-module Job
-  class Notification
-    def past_the_fixed_date
-      JobCard.find_each do |job|
-        if job.schedule_day_overdue?
-          # TODO: ここに処理を書く
-          # Notifications.create(message: '期限が過ぎております')
-        end
-      end
-    rescue
-      logger.error '処理中にエラーが発生しました。'
+namespace :job do
+  task :notification => :environment do
+    JobCard.find_each do |job|
+      Notifications.past_the_fixed_date
     end
+  rescue
+    logger.error '処理中にエラーが発生しました。'
   end
 end
