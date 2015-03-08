@@ -1,7 +1,7 @@
 namespace :job do
   desc 'do not finished job notification'
 
-  task :notification => :environment do
+  task notification: :environment do
     logger = Logger.new("log/notification.log")
     begin
       JobCard.find_each do |job|
