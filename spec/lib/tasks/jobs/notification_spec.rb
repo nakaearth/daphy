@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-describe 'jobs::notification' do
+describe 'job:notification' do
   include_context 'rake'
   
-  describe 'rake jobs::notification' do
+  describe 'rake job:notification' do
     let(:todo_job_card) { create(:job, :do_not_finished_todo) }
 
     before do
