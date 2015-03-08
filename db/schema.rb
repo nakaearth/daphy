@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303142820) do
+ActiveRecord::Schema.define(version: 20150307131457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,9 +67,8 @@ ActiveRecord::Schema.define(version: 20150303142820) do
     t.string   "description"
     t.string   "type"
     t.integer  "point"
-    t.date     "schedule_end_date"
-    t.integer  "user_id",           null: false
-    t.integer  "group_id",          null: false
+    t.integer  "user_id",     null: false
+    t.integer  "group_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "fixed_at"
@@ -77,6 +76,15 @@ ActiveRecord::Schema.define(version: 20150303142820) do
 
   add_index "job_cards", ["group_id"], name: "index_job_cards_on_group_id", using: :btree
   add_index "job_cards", ["user_id"], name: "index_job_cards_on_user_id", using: :btree
+
+  create_table "notifications", force: true do |t|
+    t.string   "message"
+    t.integer  "job_id",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "notifications", ["job_id"], name: "index_notifications_on_job_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
