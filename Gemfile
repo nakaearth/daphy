@@ -50,6 +50,8 @@ gem 'iconv'
 gem 'kaminari'
 gem 'dalli'
 gem 'whenever'
+# テンプレートエンジン。徐々にslimに移行
+gem 'slim-rails'
 
 # テスト関連
 group :development, :test do
