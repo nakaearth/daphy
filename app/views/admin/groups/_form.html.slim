@@ -1,0 +1,8 @@
+.group_form
+  = form_for @group, url: { action: @action, controller: 'admin/groups' } do |f|
+    = f.label :name
+    | :
+    = f.text_field :name
+    br
+    br
+    = f.submit

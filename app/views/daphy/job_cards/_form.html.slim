@@ -1,0 +1,20 @@
+#job_form.job_form
+  = form_for @job_card, url: { action: @action, controller: 'daphy/job_cards' }, :html => {:multipart => true} do |f|
+    = f.label :title
+    | :
+    = f.text_field :title
+    br
+    = f.label :point
+    | :
+    = f.select :point, [[1, 1], [2, 2], [3, 3]]
+    br
+    |  <ruby code="= f.label :group %>:
+    = f.select :group_id do ">
+    -       <ruby code=" @groups.each do |group| ">
+    -         <%= content_tag(:option, group.name, value: group.id)
+  br
+  = f.label :description
+  | :
+  = f.text_area :description, :size => "80x20"
+  br
+  = f.submit

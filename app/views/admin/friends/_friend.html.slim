@@ -1,0 +1,12 @@
+| <div id="
+= friend.id
+| " class="friend"> 
+#friend_menu
+  = link_to '詳細', admin_friend_path(friend)
+  |   | 
+  = link_to '編集', edit_admin_friend_path(friend)
+  |    | 
+  = link_to '友達関係の解消', delete_relationship_admin_friends_path, friend_id: friend.id, method: :delete, data: { confirm: 'Are you sure?' }
+  |    | 
+br
+= friend.name

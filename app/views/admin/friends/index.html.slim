@@ -1,0 +1,6 @@
+table.friend_list
+  - @friends.each do |friend|
+    .friend
+      = image_tag(friend.image_url, size: '100x100')
+      br
+      = friend.name

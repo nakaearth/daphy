@@ -1,0 +1,16 @@
+| <div id="
+= group.id
+| " class="group"> 
+#group_menu
+  = link_to '詳細', admin_group_path(group)
+  |   | 
+  = link_to '編集', edit_admin_group_path(group)
+  |    | 
+  = link_to '削除', admin_group_path(group), method: :delete, data: { confirm: 'Are you sure?' }
+  |    | 
+br
+= group.name
+br
+= group.created_at
+script[type="text/javascript"]
+  |  $("#<ruby code="=group.id"></ruby>").draggable({ snapMode: 'inner', containment: '#job_board', revert: 'true' }) 

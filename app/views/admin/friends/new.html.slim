@@ -1,0 +1,5 @@
+h1
+  | 友達申請
+= form_for @invite_email, url: { action: 'friend_request' } do |f|
+  = f.text_field :email
+  = f.submit

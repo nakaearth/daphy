@@ -1,0 +1,6 @@
+| 削除したタスクの一覧 
+= link_to '全部削除', remove_all_daphy_job_cards_path
+br
+#job_board.job_board
+  #Trashed.trash_job_list
+    = render partial: 'trashed_job_card', collection:  @trashes

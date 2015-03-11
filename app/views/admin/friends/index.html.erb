@@ -1,8 +1,0 @@
-<table class = 'friend_list'>
-  <% @friends.each do |friend| %>
-  <div class='friend'>
-      <%= image_tag(friend.image_url, size: '100x100') %><br/>
-      <%= friend.name %>
-  </div>
-  <% end %>
-</table>

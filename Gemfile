@@ -50,6 +50,7 @@ gem 'iconv'
 gem 'kaminari'
 gem 'dalli'
 gem 'whenever'
+gem 'slim'
 
 # テスト関連
 group :development, :test do
@@ -108,7 +109,6 @@ group :development do
   gem "did_you_mean"
 end
 
-gem "annotate", git: "https://github.com/ctran/annotate_models"
 gem "td"
 gem "td-logger"
 gem "watson-ruby"
