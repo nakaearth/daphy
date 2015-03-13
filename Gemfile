@@ -54,7 +54,7 @@ gem 'whenever'
 gem 'slim-rails'
 
 # テスト関連
-group :development, :test do
+group :test do
   gem 'spring-commands-rspec'
   gem 'rspec-rails'
   gem 'rspec-mocks'
@@ -63,7 +63,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'database_rewinder'
-  gem 'rake_shared_context'
   gem 'rspec-request_describer'
 
   # コードカバレッジ
@@ -139,7 +138,6 @@ end
 
 # heroku連携
 gem 'heroku'
-gem 'puma'
 group :development do
   # travis連携
   gem 'travis'
