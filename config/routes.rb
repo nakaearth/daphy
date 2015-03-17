@@ -1,4 +1,28 @@
 Rails.application.routes.draw do
+  namespace :daphy do
+  get 'job_folder/new'
+  end
+
+  namespace :daphy do
+  get 'job_folder/create'
+  end
+
+  namespace :daphy do
+  get 'job_folder/edit'
+  end
+
+  namespace :daphy do
+  get 'job_folder/update'
+  end
+
+  namespace :daphy do
+  get 'job_folder/show'
+  end
+
+  namespace :daphy do
+  get 'job_folder/destroy'
+  end
+
   get 'top/index'
 
  #facebook login 
@@ -20,6 +44,10 @@ Rails.application.routes.draw do
         patch 'recovery'
         delete 'remove'
       end
+    end
+
+    resources :job_folder, param: :encoded_id do
+
     end
   end
   
