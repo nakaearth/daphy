@@ -16,5 +16,7 @@
 //= require jquery-ui/droppable
 //= require jquery-ui/effect.all
 //= require jquery-ui/effect-highlight
+//= require bootstrap
+//
 //= require turbolinks
 //= require_tree .
