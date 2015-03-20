@@ -2,8 +2,7 @@ source 'https://rubygems.org'
 # ruby '2.1.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.1.9'
-# gem 'rails', '~> 4.1.8'
+gem 'rails', '~> 4.1.10'
 # Use sqlite3 as the database for Active Record
 # group :developmnt, :test do
 #  gem 'sqlite3'
@@ -50,8 +49,6 @@ gem 'iconv'
 gem 'kaminari'
 gem 'dalli'
 gem 'whenever'
-# テンプレートエンジン。徐々にslimに移行
-gem 'slim-rails'
 
 # テスト関連
 group :test do
@@ -83,8 +80,8 @@ group :test do
   # gem 'stackprof-webnav'
 
   # 静的解析
-  gem 'rubycritic', require: false
-  gem 'brakeman', require: false
+  # gem 'rubycritic', require: false
+  # gem 'brakeman', require: false
 
   # gem 'pre-commit'
 end
