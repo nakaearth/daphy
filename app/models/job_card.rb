@@ -1,6 +1,7 @@
 class JobCard < ActiveRecord::Base
   belongs_to :user, inverse_of: :my_job_cards
   belongs_to :group
+  belongs_to :job_folder
 
   enum type: { todo: 'Todo', doing: 'Doing', done: 'Done', trashed: 'Trashed' }
 
@@ -31,5 +32,11 @@ class JobCard < ActiveRecord::Base
 
   def schedule_day_overdue?
     Date.current > fixed_at
+  end
+
+  concerning :Archiving do
+    def selected_job_cards(params)
+      self.class.where(id: params[:job_card_ids])
+    end
   end
 end
