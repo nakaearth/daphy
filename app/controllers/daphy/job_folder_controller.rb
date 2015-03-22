@@ -38,6 +38,15 @@ module Daphy
     end
 
     def job_folder_params
+      job_folder_params = {
+        job_folder: {
+          name: params[:name],
+          job_cards_attributes: {
+            ids: params[:job_cards_attributes][:ids]  
+          }
+        }
+      }
+      # TODO: ここ編集
       params.require(:job_folder).permit(:name) if params[:job_folder]
     end
   end

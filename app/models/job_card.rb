@@ -35,7 +35,7 @@ class JobCard < ActiveRecord::Base
   end
 
   concerning :Archiving do
-    def selected_job_cards(params)
+    def self.selected_job_cards(params)
       self.class.where(id: params[:job_card_ids])
     end
   end

@@ -65,7 +65,7 @@ describe JobCard, type: :model do
     end
   end
 
-  describe '#job.schedule_day_overdue?' do
+  describe '#schedule_day_overdue?' do
     subject { job_card.schedule_day_overdue? }
     let(:user) { create(:user) }
     let(:group) { create(:group) }
@@ -81,6 +81,27 @@ describe JobCard, type: :model do
       let(:fixed_at) { Date.current.prev_day(1) }
 
       it { is_expected.to be_truthy }
+    end
+  end
+
+  describe '#selected_job_cards' do
+    subject { JobCard.selected_job_cards(params) }
+    let(:user) { create(:user) }
+    let(:group) { create(:group) }
+    let(:job_cards) { create_list(:job_card, 3, :done, user: user, group: group) }
+
+    context '1 job_card selected' do
+      let(:params) do
+        {
+          job_folder: {
+            job_cards: [
+              job_cards[0].id
+            ]
+          }
+        }
+      end
+      
+      it { is_expected.to eq(job_cards[0] }
     end
   end
 end
