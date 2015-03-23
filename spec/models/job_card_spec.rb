@@ -104,5 +104,23 @@ describe JobCard, type: :model do
       it { expect(subject.count).to eq 1 }
       it { expect(subject[0].id).to eq(job_cards[0].id) }
     end
+    
+    context '2 job_card selected' do
+      let(:params) do
+        {
+          job_folder: {
+            job_card_ids: [
+              job_cards[0].id,
+              job_cards[1].id
+            ]
+          }
+        }
+      end
+      
+      it { expect(subject.count).to eq 2 }
+      it { expect(subject[0].id).to eq(job_cards[0].id).or eq(job_cards[1].id) }
+      it { expect(subject[1].id).to eq(job_cards[0].id).or eq(job_cards[1].id) }
+    end
+
   end
 end
