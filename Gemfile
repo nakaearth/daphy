@@ -93,13 +93,12 @@ group :development, :test do
   gem 'guard-spring'
   gem 'guard-rubocop'
   gem 'terminal-notifier-guard'
-
-end
-
-group :development do
   gem "pry-rails"
   gem "pry-doc"
   gem 'pry-byebug'
+end
+
+group :development do
   gem "awesome_print"
   gem "better_errors"
   gem "quiet_assets"

@@ -94,14 +94,15 @@ describe JobCard, type: :model do
       let(:params) do
         {
           job_folder: {
-            job_cards: [
+            job_card_ids: [
               job_cards[0].id
             ]
           }
         }
       end
       
-      it { is_expected.to eq(job_cards[0] }
+      it { expect(subject.count).to eq 1 }
+      it { expect(subject[0].id).to eq(job_cards[0].id) }
     end
   end
 end
