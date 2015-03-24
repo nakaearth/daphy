@@ -4,4 +4,6 @@ class JobFolder < ActiveRecord::Base
   accepts_nested_attributes_for :job_cardsw
 
   validates :name, presence: true, length: { maximum: 50 }
+
+  alias_method :archive, :save
 end

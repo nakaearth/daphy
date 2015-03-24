@@ -10,8 +10,12 @@ RSpec.describe Daphy::JobFolderController, type: :controller do
   end
 
   describe "GET #create" do
+    let(:params) {
+
+    }
+
     it "returns http success" do
-      get :create
+      post :create, params
       expect(response).to have_http_status(:success)
     end
   end
@@ -25,7 +29,7 @@ RSpec.describe Daphy::JobFolderController, type: :controller do
 
   describe "GET #update" do
     it "returns http success" do
-      get :update
+      put :update
       expect(response).to have_http_status(:success)
     end
   end
@@ -39,7 +43,7 @@ RSpec.describe Daphy::JobFolderController, type: :controller do
 
   describe "GET #destroy" do
     it "returns http success" do
-      get :destroy
+      delete :destroy
       expect(response).to have_http_status(:success)
     end
   end

@@ -8,7 +8,7 @@ module Daphy
     def create
       job_cards = JobCards.selected_job_cards(job_folder_params)
       @job_folder.job_cards = job_cards
-      if @job_folder.save(job_folder_params)
+      if @job_folder.archive(job_folder_params)
         redirect_to action: :index, flash: 'アーカイブしました'
       else
         render action: :new
@@ -42,7 +42,7 @@ module Daphy
         job_folder: {
           name: params[:name],
           job_cards_attributes: {
-            ids: params[:job_cards_attributes][:ids]  
+            ids: params[:job_cards_attributes][:ids]
           }
         }
       }
