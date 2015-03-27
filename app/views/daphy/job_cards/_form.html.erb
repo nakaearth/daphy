@@ -1,5 +1,5 @@
 <div class='job_form' id='job_form'>
-  <%= form_for @job_card, url: { action: @action, controller: 'daphy/job_cards' }, :html => {:multipart => true} do |f| %>
+  <%= form_for @job_card, url: { action: @action, controller: 'daphy/job_cards' } do |f| %>
     <%= f.label :title %>:<%= f.text_field :title %><br/>
     <%= f.label :point %>:<%= f.select :point, [[1, 1], [2, 2], [3, 3]] %><br/>
      

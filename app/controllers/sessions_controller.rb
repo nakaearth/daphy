@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     user = User.find_by(provider: auth[:provider], email: auth[:info][:name]) || User.create_account(auth)
 
     session[:user_id] = user.id
-    logger.info user
+    logger.info user.try(:name)
     flash[:notice] = 'login successfully.'
     redirect_to controller: 'daphy/job_cards', action: 'index'
   end
