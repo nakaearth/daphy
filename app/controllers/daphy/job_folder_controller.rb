@@ -46,8 +46,7 @@ module Daphy
           }
         }
       }
-      # TODO: ここ編集
-      params.require(:job_folder).permit(:name) if params[:job_folder]
+      params.require(:job_folder).permit(job_folder_params) if params[:job_folder]
     end
   end
 end

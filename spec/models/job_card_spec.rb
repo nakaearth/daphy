@@ -125,6 +125,5 @@ describe JobCard, type: :model do
       it { expect(subject[0].id).to eq(job_cards[0].id).or eq(job_cards[1].id) }
       it { expect(subject[1].id).to eq(job_cards[0].id).or eq(job_cards[1].id) }
     end
-
   end
 end

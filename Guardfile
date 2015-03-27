@@ -1,7 +1,7 @@
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 
-guard :rspec, cmd: 'bundle exec spring rspec', notification: true do
+guard :rspec, cmd: 'bundle exec rspec', notification: true do
   watch('spec/.+_spec\.rb')
   watch('lib/(.+)\.rb')     { |m| "spec/lib/#{m[1]}_spec.rb" }
 
@@ -15,16 +15,6 @@ guard :rspec, cmd: 'bundle exec spring rspec', notification: true do
   watch('app/controllers/application_controller.rb')  { "spec/controllers" }
   # Capybara request specs
   watch('app/views/(.+)/.*\.(erb|haml)')          { |m| "spec/requests/#{m[1]}_spec.rb" }
-end
-
-guard 'spring', rspec_cli: '--color', notification: true do
-  watch('spec/.+_spec\.rb')
-  watch('spec/spec_helper\.rb')                   { |_m| 'spec' }
-  watch('app/(.+)\.rb')                           { |m| "spec/#{m[1]}_spec.rb" }
-  watch('lib/(.+)\.rb')                           { |m| "spec/lib/#{m[1]}_spec.rb" }
-  watch('app/controllers/(.+)_(controller)\.rb')  do |m|
-    %W(spec/routing/#{m[1]}_routing_spec.rb spec/#{m[2]}s/#{m[1]}_#{m[2]}_spec.rb spec/requests/#{m[1]}_spec.rb)
-  end
 end
 
 guard :rubocop, notification: true  do

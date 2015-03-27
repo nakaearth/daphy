@@ -10,5 +10,4 @@ RSpec.describe FriendRequestRegistration, type: :model do
       it { expect belong_to(:users) }
     end
   end
-
 end

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Daphy::JobFolderController, type: :controller do
-
   describe "GET #new" do
     it "returns http success" do
       get :new
@@ -10,9 +9,8 @@ RSpec.describe Daphy::JobFolderController, type: :controller do
   end
 
   describe "GET #create" do
-    let(:params) {
-
-    }
+    let(:params) do
+    end
 
     it "returns http success" do
       post :create, params
@@ -47,5 +45,4 @@ RSpec.describe Daphy::JobFolderController, type: :controller do
       expect(response).to have_http_status(:success)
     end
   end
-
 end
