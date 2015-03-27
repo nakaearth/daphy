@@ -207,6 +207,7 @@ GEM
     msgpack (0.5.11)
     multi_json (1.11.0)
     multipart-post (2.0.0)
+    mysql2 (0.3.17)
     nenv (0.2.0)
     net-http-persistent (2.9.4)
     net-http-pipeline (1.0.1)
@@ -229,7 +230,6 @@ GEM
     parser (2.2.0.pre.8)
       ast (>= 1.1, < 3.0)
       slop (~> 3.4, >= 3.4.5)
-    pg (0.18.1)
     powerpack (0.0.9)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -479,10 +479,10 @@ DEPENDENCIES
   json_pure (= 1.5.3)
   kaminari
   lograge
+  mysql2
   newrelic_rpm
   omniauth-twitter
   parser (= 2.2.0.pre.8)
-  pg
   pry-byebug
   pry-doc
   pry-rails
