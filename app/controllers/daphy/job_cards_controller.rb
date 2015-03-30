@@ -1,7 +1,7 @@
 module Daphy
   class JobCardsController < ApplicationController
     before_action :set_job_card, only: [:show, :edit, :update, :destroy, :change_type, :recovery, :remove]
-    before_action :set_groups, only: [:index, :new, :edit, :show, :trashed]
+    before_action :set_groups, only: [:index, :new, :edit, :show, :trashed, :change_type]
 
     def index
       if params[:group_id]
