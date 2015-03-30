@@ -152,5 +152,5 @@ gem 'active_hash'
 gem 'attr_encrypted'
 
 # log解析
-gem 'act-fluent-logger-rails'
-gem 'lograge'
+#gem 'act-fluent-logger-rails'
+#gem 'lograge'
