@@ -11,7 +11,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
   Coveralls::SimpleCov::Formatter
 ]
 SimpleCov.start do
-  add_filter '.bundle/'
+  add_filter 'vendor/bundle/'
 end
 
 # Requires supporting ruby files with custom matchers and macros, etc,
