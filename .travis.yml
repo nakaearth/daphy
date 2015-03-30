@@ -5,7 +5,7 @@ rvm:
 gemfile:
 - Gemfile
 env:
-- DB=postgresql
+- DB=mysql
 branches:
   only:
   - master
