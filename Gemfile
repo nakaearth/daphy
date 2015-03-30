@@ -3,13 +3,11 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.1.10'
-# Use sqlite3 as the database for Active Record
-# group :developmnt, :test do
-#  gem 'sqlite3'
-# end
+
+group :developmnt, :test do
+  gem 'mysql2'
+end
 # Use SCSS for stylesheets
-gem 'mysql2'
-gem 'mysql'
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -126,6 +124,7 @@ gem "pundit"
 gem "font-awesome-rails"
 gem "gon"
 group :production do
+  gem 'mysql'
   gem "foreman"
   gem "rails_12factor"
   gem "bugsnag"
