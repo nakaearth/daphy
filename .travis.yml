@@ -10,8 +10,7 @@ branches:
   only:
   - master
 script:
-- RAILS_ENV=test bundle exec rake db:test:prepare
-- RAILS_ENV=test bundle exec rake spec
+- RAILS_ENV=test bundle exec rake db:migrate --trace
 - bundle exec rubocop app
 - bundle exec rubocop lib
 - bundle exec rubocop spec
@@ -19,7 +18,7 @@ before_install: gem update bundler
 before_script:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
-- RAILS_ENV=test bundle exec rake db:schema:load
+- mysql -e 'create database my_app_test'
 after_failure:
 - bundle exec rake --version
 deploy:
