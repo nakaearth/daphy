@@ -1,6 +1,6 @@
 module Daphy
   class JobCardsController < ApplicationController
-    before_action :set_job_card, only: [:show, :edit, :update, :destroy, :change_type, :recovery, :remove]
+    before_action :set_job_card, only: [:show, :edit, :update, :destroy, :recovery, :remove]
     before_action :set_groups, only: [:index, :new, :edit, :show, :trashed, :change_type]
 
     def index
@@ -50,6 +50,7 @@ module Daphy
     end
 
     def change_type
+      @job_card = JobCard.find(params[:encoded_id])
       @job_card.type = params[:type]
       @job_card.save!
       render json: { status: 'ok' }
