@@ -50,6 +50,9 @@ module Daphy
     end
 
     def change_type
+      # Ajaxで実行されるメソッド。
+      # エンコードされていないIDが渡ってくるので、このような書き方になっている
+      # TODO: 要検討
       @job_card = JobCard.find(params[:encoded_id])
       @job_card.type = params[:type]
       @job_card.save!
