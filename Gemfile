@@ -51,7 +51,6 @@ gem 'whenever'
 
 # テスト関連
 group :test do
-  # gem 'spring-commands-rspec'
   gem 'rspec-rails'
   gem 'rspec-mocks'
   # rakeのテスト用
@@ -74,6 +73,7 @@ group :test do
 
   # 良い書き方しているかチェック
   gem 'rails_best_practices'
+
   # プロファイリング
   # gem 'stackprof'
   # gem 'stackprof-webnav'
@@ -89,12 +89,12 @@ group :development, :test do
   # テスト、コードチェックを自動で別プロセスでやる
   gem 'guard', '~> 2.8'
   gem 'guard-rspec'
-  # gem 'guard-spring'
   gem 'guard-rubocop'
   gem 'terminal-notifier-guard'
   gem "pry-rails"
   gem "pry-doc"
   gem 'pry-byebug'
+  gem 'test-queue'
 end
 
 group :development do
@@ -152,5 +152,5 @@ gem 'active_hash'
 gem 'attr_encrypted'
 
 # log解析
-#gem 'act-fluent-logger-rails'
-#gem 'lograge'
+# gem 'act-fluent-logger-rails'
+# gem 'lograge'
