@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Daphy::JobFolderController, type: :controller do
+RSpec.describe Daphy::JobFoldersController, type: :controller do
   describe "GET #new" do
     it "returns http success", skip: true do
       get :new

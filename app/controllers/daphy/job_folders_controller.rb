@@ -1,11 +1,18 @@
 module Daphy
-  class JobFolderController < ApplicationController
-    before_action :set_group, :set_job_folder
+  class JobFoldersController < ApplicationController
+    before_action :set_group
+    before_action :set_job_folder, only: [:show, :edit, :update, :destroy]
+
+    def index
+      @job_folders = JobFolder.all
+    end
 
     def new
+      @job_folder = JobFolder.new
     end
 
     def create
+      @job_folder = JobFolder.new
       job_cards = JobCards.selected_job_cards(job_folder_params)
       @job_folder.job_cards = job_cards
       if @job_folder.archive(job_folder_params)
