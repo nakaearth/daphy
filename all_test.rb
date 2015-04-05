@@ -28,7 +28,7 @@ class MyAppRSpecRunner < TestQueue::Runner::RSpec
   end
 
   def summarize
-    estatus = @completed.inject(0) { |a,e | s + e.status.exitstatus }
+    estatus = @completed.inject(0) { |a, e | a + e.status.exitstatus }
     estatus = 255 if estatus > 255
     exit(estatus)
   end
