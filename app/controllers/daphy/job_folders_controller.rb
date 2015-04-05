@@ -4,7 +4,7 @@ module Daphy
     before_action :set_job_folder, only: [:show, :edit, :update, :destroy]
 
     def index
-      @job_folders = JobFolder.all
+      @job_folders = @group.job_folders
     end
 
     def new

@@ -21,9 +21,8 @@ Rails.application.routes.draw do
         delete 'remove'
       end
     end
-
-    resources :job_folders, param: :encoded_id do
-
+    resources :groups do
+      resources :job_folders, param: :encoded_id
     end
   end
   

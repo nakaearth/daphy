@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_action :login?
   helper_method :current_user
+  helper_method :currnet_group
   rescue_from ActiveRecord::RecordNotFound, with: :render_404
   rescue_from ActionController::RoutingError, with: :render_404
 
@@ -14,6 +15,10 @@ class ApplicationController < ActionController::Base
     logger.info "ユーザ情報がありません: #{ar.message}"
     session[:user_id] = nil
     nil
+  end
+
+  def current_group
+    @current_group ||= current_user.my_groups.first
   end
 
   def login?
