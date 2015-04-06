@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActionController::RoutingError, with: :render_404
 
   def current_user
-    @current_user ||=  User.find(session[:user_id]) if session[:user_id]
+    @current_user ||=  User.includes(:my_groups).find(session[:user_id]) if session[:user_id]
   rescue ActiveRecord::RecordNotFound => ar
     logger.info "ユーザ情報がありません: #{ar.message}"
     session[:user_id] = nil
