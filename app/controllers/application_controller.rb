@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_action :login?
   helper_method :current_user
-  helper_method :currnet_group
+  helper_method :current_group
   rescue_from ActiveRecord::RecordNotFound, with: :render_404
   rescue_from ActionController::RoutingError, with: :render_404
 
