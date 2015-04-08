@@ -2,7 +2,6 @@ ENV['RAILS_ENV'] ||= 'test'
 ENV['TEST_QUEUE_STATS'] ||= File.expand_path('../tmp/.test_queue_stats', __FILE__)
 
 require File.expand_path('../config/environment', __FILE__)
-
 require 'test_queue'
 require 'test_queue/runner/rspec'
 
