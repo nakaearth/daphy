@@ -6,11 +6,3 @@
   <br/>
   <%= job_card.created_at %>
 </div>
-
-<script type='text/javascript'>
-  $("#<%=job_card.id %>").draggable({
-    snapMode: 'inner',
-    containment: '#job_board',
-    revert: 'true'
-   })
-</script>
