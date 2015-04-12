@@ -1,3 +1,30 @@
 // Place all the styles related to the daphy/job_folder controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.job_folder {
+  border: 1px solid #333333;
+  font-size: 10pt;
+  width: 400px;
+  margin: 3px;
+  float: left;
+  cursor: move;
+  padding: 5px;
+  margin: 5px;
+  -webkit-border-radius: 10px;/* Safari、Google Chrome */
+  -moz-border-radius: 10px;/* Firefox */
+}
+.job_list {
+  text-align: left;
+  font-weight: bold;
+  border: 2px solid #333333;
+  background-color: #FFFFFF;
+  vertical-align: text-top;
+  width: 75%;
+  height: 900px;
+  overflow: visible;
+  padding: 10px;
+  margin: 10px;
+  float: left;
+  -webkit-border-radius: 10px;/* Safari、Google Chrome */
+  -moz-border-radius: 10px;/* Firefox */
+}
