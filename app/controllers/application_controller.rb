@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   include Pundit
 
   before_action :login?
+  before_action :set_groups
   helper_method :current_user
   helper_method :current_group
   rescue_from ActiveRecord::RecordNotFound, with: :render_404
@@ -19,6 +20,11 @@ class ApplicationController < ActionController::Base
 
   def current_group
     @current_group ||= current_user.my_groups.first
+  end
+
+  def set_groups
+    @groups = current_user.try(:my_groups)
+    @group_id = params[:group_id].presence || current_user.try(:my_groups[0]).try(:id)
   end
 
   def login?

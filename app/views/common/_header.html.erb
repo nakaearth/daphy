@@ -1,4 +1,4 @@
-<% if current_user.login? %>
+<% if current_user %>
 <menu>
   <div class='left_div'>
     <%= select_tag 'group_id', options_from_collection_for_select(@groups, :id, :name, @group_id) %>&nbsp;&nbsp;
