@@ -1,3 +1,8 @@
+<menu>
+  <div class='left_div'>
+    <%= link_to_unless_current '作成', new_daphy_group_job_folder_path %>
+  </div>
+</menu>
 <div class='job_folder_list'>
   アーカイブ一覧
   <%= @job_folders.each do |job_folder| %>
