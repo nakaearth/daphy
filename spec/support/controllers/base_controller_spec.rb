@@ -13,6 +13,6 @@ shared_examples_for "BaseController" do
   end
 
   describe '#user.my_groups' do
-    it { expect(user.my_groups.size).to eq(2) } 
+    it { expect(user.my_groups.size).to eq(2) }
   end
 end
