@@ -3,6 +3,8 @@ module Daphy
   RSpec.describe JobCardsController, type: :controller do
     render_views
 
+    it_should_behave_like 'BaseController'
+
     let!(:group) { create(:group) }
     let!(:user) { create(:user) }
     let!(:group_member) { create(:group_member, user: user, group: group) }
