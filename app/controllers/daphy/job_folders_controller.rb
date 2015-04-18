@@ -26,12 +26,20 @@ module Daphy
     end
 
     def update
+      job_cards = JobCards.selected_job_cards(job_folder_params)
+      @job_folder.job_cards.merge(job_cards)
+      if @job_folder.archive(job_folder_params)
+        redirect_to action: :index, flash: 'アーカイブしました'
+      else
+        render action: :edit
+      end
     end
 
     def show
     end
 
     def destroy
+      @job_folder.destroy
     end
 
     private

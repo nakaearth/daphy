@@ -1,0 +1,9 @@
+<%= form_for @job_folder, url: { action: 'new' } do |f| %>
+  <%= f.label :name %>:<%= f.text_field :name %>: <%= f.text_field :name %>
+  <%= @job_folder.job_cards.each do |job_card| %>
+  <%=f.fields_for :job_cards_attributes do |f_job_card| %>
+    <%= f_job_card.collection_radio_buttons :ids, @job_folder.job_cards, :id, :title %>
+  <% end %>
+<% end %>
+  <%= f.submit %>
+<% end %>
