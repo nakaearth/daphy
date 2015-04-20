@@ -9,12 +9,13 @@ module Daphy
 
     def new
       @job_folder = JobFolder.new
+      @job_cards = current_user.my_job_cards.done
     end
 
     def create
       @job_folder = JobFolder.new
-      job_cards = JobCards.selected_job_cards(job_folder_params)
-      @job_folder.job_cards = job_cards
+      selected_job_cards = JobCard.selected_job_cards(job_folder_params)
+      @job_folder.job_cards = selected_job_cards
       if @job_folder.archive(job_folder_params)
         redirect_to action: :index, flash: 'アーカイブしました'
       else
