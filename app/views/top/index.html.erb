@@ -1,4 +1,4 @@
 <h1>ようこそ、daphyへ</h1>
-<% if current_user %>
+<% unless current_user %>
   <%= link_to "Twitterでログイン", "/twitter/login" %>
 <% end %>
