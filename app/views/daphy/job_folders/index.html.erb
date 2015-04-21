@@ -3,11 +3,13 @@
     <%= link_to_unless_current '作成', new_daphy_group_job_folder_path %>
   </div>
 </menu>
+<% if @job_folders %>
 <div class='job_folder_list'>
   アーカイブ一覧
   <%= @job_folders.each do |job_folder| %>
     <div class='job_folder'>
       <%= job_folder.name %><br/>
     </div> 
-<% end %>
+  <% end %>
 </div>
+<% end %>
