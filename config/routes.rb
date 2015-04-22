@@ -25,7 +25,7 @@ Rails.application.routes.draw do
       resources :job_folders, param: :encoded_id
     end
   end
-  
+
   namespace :admin do
     get 'top/index'
     resources :groups, only: [:index, :show, :new, :create, :update, :edit, :destroy] do
