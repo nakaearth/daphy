@@ -22,7 +22,7 @@ module Daphy
       end
 
       context 'done job_card is not empty' do
-        it'job_cards is not nil' do
+        it 'job_cards is not nil' do
           get :new, controller: 'daphy/job_folders', group_id: group.id
           expect(assigns[:job_cards]).not_to be_nil
           expect(assigns[:job_cards].size).to eq(3)
