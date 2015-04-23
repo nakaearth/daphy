@@ -5,13 +5,13 @@ module Daphy
 
     it_should_behave_like 'BaseController'
 
-    let!(:group) { create(:group) }
-    let!(:user) { create(:user) }
-    let!(:group_member) { create(:group_member, user: user, group: group) }
+    let(:group) { create(:group) }
+    let(:user) { create(:user) }
+    let(:group_member) { create(:group_member, user: user, group: group) }
     let!(:todo_list) { create_list(:job_card, 4, user: user, group: group) }
     let!(:doing_list) { create_list(:job_card, 5, :doing, user: user, group: group) }
     let!(:done_list) { create_list(:job_card, 3, :done, user: user, group: group) }
-    let!(:trashed_list) { create_list(:job_card, 2, :trashed, user: user, group: group) }
+    let(:trashed_list) { create_list(:job_card, 2, :trashed, user: user, group: group) }
 
     before do
       allow(controller).to receive(:current_user) { user }

@@ -1,7 +1,7 @@
 <%= form_for @job_folder, url: { action: 'create' } do |f| %>
-  <%= @current_user.my_job_cards.dones.each do |select_job_card| %>
+  <%= current_user.my_job_cards.dones.each do |select_job_card| %>
     <div class='job'>
-      <%= select_job_card.name %>
+      <%= select_job_card.title %>
     </div>
   <% end %>
   <%= f.label :name %>:<%= f.text_field :name %>: <%= f.text_field :name %>
