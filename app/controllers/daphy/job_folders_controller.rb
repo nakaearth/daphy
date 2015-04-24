@@ -58,7 +58,7 @@ module Daphy
         job_folder: {
           name: params[:name],
           job_cards_attributes: {
-            ids: params[:job_cards_attributes][:ids]
+            ids: params[:ids]
           }
         }
       }
