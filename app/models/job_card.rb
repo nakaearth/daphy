@@ -37,7 +37,9 @@ class JobCard < ActiveRecord::Base
   concerning :Archiving do
     included do
       def self.selected_job_cards(params)
-        JobCard.where(id: params[:job_folder][:job_card_attributes][:ids].join(','))
+        return unless params[:job_cards_attributes][:ids]
+
+        JobCard.where(id: params[:job_cards_attributes][:ids])
       end
     end
   end
