@@ -42,9 +42,20 @@ module Daphy
     end
 
     describe "GET #create" do
-      it "returns http success" do
-        post :create, controller: 'daphy/job_folders',  group_id: group.id, job_folder: { name: 'hoge', job_cards_attributes: { ids: '1,2,3' } }
-        expect(response).to have_http_status(:success)
+      before do
+        post :create, controller: 'daphy/job_folders',  group_id: group.id, job_folder: { name: 'hoge', job_cards_attributes: { ids: ids } }
+      end
+
+      context 'done_job_cards is not empty' do
+        let(:ids) { '1,2,3' }
+
+        it  { expect(response).to have_http_status(:success) } 
+      end
+
+      context 'done_job_cards is empty' do
+        let(:ids) { nil }
+
+        it { expect(response).to have_http_status(:success) }
       end
     end
 
