@@ -29,7 +29,7 @@ module Daphy
         end
       end
 
-      context 'done job_card is not empty' do
+      context 'done job_card is empty' do
         let(:user2) { create(:user) }
 
         it 'job_cards is empty' do
