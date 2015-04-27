@@ -16,6 +16,7 @@ module Daphy
       @job_folder = JobFolder.new
       selected_job_cards = JobCard.selected_job_cards(job_folder_params)
       @job_folder.job_cards << selected_job_cards if selected_job_cards
+
       if @job_folder.archive(job_folder_params)
         @job_cards = curreent_user.my_job_cards.done
         redirect_to action: :index, flash: 'アーカイブしました'
