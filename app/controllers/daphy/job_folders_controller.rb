@@ -61,7 +61,7 @@ module Daphy
         job_cards_attributes: {
           ids: params[:ids]
         }
-    }
+      }
       params.require(:job_folder).permit(job_folder_params) if params[:job_folder]
     end
   end

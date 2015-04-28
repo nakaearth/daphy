@@ -49,7 +49,7 @@ module Daphy
       context 'done_job_cards is not empty' do
         let(:ids) { '1,2,3' }
 
-        it  { expect(response).to have_http_status(:success) } 
+        it  { expect(response).to have_http_status(:success) }
       end
 
       context 'done_job_cards is empty' do
