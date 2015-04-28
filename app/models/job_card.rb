@@ -1,7 +1,7 @@
 class JobCard < ActiveRecord::Base
   belongs_to :user, inverse_of: :my_job_cards
   belongs_to :group
-  belongs_to :job_folder
+  belongs_to :job_folder, inverse_of: :job_cards
 
   enum type: { todo: 'Todo', doing: 'Doing', done: 'Done', trashed: 'Trashed' }
 

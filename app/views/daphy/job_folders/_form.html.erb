@@ -1,13 +1,13 @@
 <%= form_for @job_folder, url: { action: 'create' } do |f| %>
-  <%= current_user.my_job_cards.dones.each do |select_job_card| %>
+  <% current_user.my_job_cards.dones.each do |select_job_card| %>
     <div class='job'>
       <%= select_job_card.title %>
     </div>
   <% end %>
   <%= f.label :name %>: <%= f.text_field :name %>
-  <% if @job_cards %>
+  <% @job_cards.each do |job_card| %>
     <%=f.fields_for :job_cards_attributes do |f_job_card| %>
-      <%= f_job_card.collection_radio_buttons :ids, @job_folder.job_cards, :id, :title %>
+      <%= f_job_card.check_box :job_card_ids, { multiple: true }, job_card.title %> <%= job_card.title %>
     <% end %>
   <% end %>
   <%= f.submit %>
