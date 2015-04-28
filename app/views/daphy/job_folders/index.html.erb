@@ -8,7 +8,9 @@
   アーカイブ一覧
   <%= @job_folders.each do |job_folder| %>
     <div class='job_folder'>
-      <%= job_folder.name %><br/>
+      <div class='job job_status('Done')'>
+        <%= job_folder.name %>
+      </div>
     </div>
   <% end %>
 </div>

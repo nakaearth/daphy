@@ -2,23 +2,22 @@ module Daphy
   class JobFoldersController < ApplicationController
     before_action :set_group
     before_action :set_job_folder, only: [:show, :edit, :update, :destroy]
+    before_action :set_done_job_card, only: [:new, :create, :edit, :update]
 
     def index
       @job_folders = @group.job_folders
     end
 
     def new
-      @job_folder = JobFolder.new
-      @job_cards = current_user.my_job_cards.done
+      @job_folder = current_group.job_folders.build
     end
 
     def create
-      @job_folder = JobFolder.new
+      @job_folder = current_group.job_folders.build
       selected_job_cards = JobCard.selected_job_cards(job_folder_params)
       @job_folder.job_cards << selected_job_cards if selected_job_cards
 
       if @job_folder.archive(job_folder_params)
-        @job_cards = curreent_user.my_job_cards.done
         redirect_to action: :index, flash: 'アーカイブしました'
       else
         render action: :new
@@ -49,6 +48,10 @@ module Daphy
 
     def set_group
       @group = Group.find(params[:group_id])
+    end
+
+    def set_done_job_card
+      @done_job_cards = current_user.my_job_cards.done
     end
 
     def set_job_folder
