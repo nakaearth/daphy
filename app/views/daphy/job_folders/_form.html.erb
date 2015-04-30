@@ -7,7 +7,7 @@
   <%= f.label :name %>: <%= f.text_field :name %>
   <% @done_job_cards.each do |job_card| %>
     <%=f.fields_for :job_cards_attributes do |f_job_card| %>
-      <%= f_job_card.check_box :job_card_ids, { multiple: true }, job_card.title %> <%= job_card.title %>
+      <%= f_job_card.check_box :job_cards_ids, { multiple: true }, job_card.title %> <%= job_card.title %>
     <% end %>
   <% end %>
   <%= f.submit %>
