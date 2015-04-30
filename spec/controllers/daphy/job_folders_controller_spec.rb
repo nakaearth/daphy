@@ -47,7 +47,7 @@ module Daphy
       end
 
       context 'done_job_cards is not empty' do
-        let(:ids) { '1,2,3' }
+        let(:ids) { done_list.collect(&:id).join(',') }
 
         it  { expect(response).to have_http_status(:success) }
       end
