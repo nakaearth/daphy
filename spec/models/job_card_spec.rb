@@ -93,12 +93,10 @@ describe JobCard, type: :model do
     context '1 job_card selected' do
       let(:params) do
         {
-          job_folder: {
-            job_card_attributes: {
-              ids: [
-                job_cards[0].id
-              ]
-            }
+          job_cards_attributes: {
+            ids: [
+              job_cards[0].id
+            ]
           }
         }
       end
@@ -110,13 +108,11 @@ describe JobCard, type: :model do
     context '2 job_card selected' do
       let(:params) do
         {
-          job_folder: {
-            job_card_attributes: {
-              ids: [
-                job_cards[0].id,
-                job_cards[1].id
-              ]
-            }
+          job_cards_attributes: {
+            ids: [
+              job_cards[0].id,
+              job_cards[1].id
+            ]
           }
         }
       end
