@@ -24,8 +24,8 @@ module Daphy
       context 'done job_card is not empty' do
         it 'job_cards is not nil' do
           get :new, controller: 'daphy/job_folders', group_id: group.id
-          expect(assigns[:job_cards]).not_to be_nil
-          expect(assigns[:job_cards].size).to eq(3)
+          expect(assigns[:done_job_cards]).not_to be_nil
+          expect(assigns[:done_job_cards].size).to eq(3)
         end
       end
 
@@ -36,7 +36,7 @@ module Daphy
           allow(controller).to receive(:current_user) { user2 }
 
           get :new, controller: 'daphy/job_folders', group_id: group.id
-          expect(assigns[:job_cards].size).to eq(0)
+          expect(assigns[:done_job_cards].size).to eq(0)
         end
       end
     end
