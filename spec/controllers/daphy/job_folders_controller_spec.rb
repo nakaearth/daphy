@@ -49,7 +49,9 @@ module Daphy
       context 'done_job_cards is not empty' do
         let(:ids) { done_list.collect(&:id).join(',') }
 
-        it  { expect(response).to have_http_status(:success) }
+        it { expect(response).to have_http_status(:success) }
+        # TODO: あとでここコメントアウト外す
+        # it { expect(JobFolder.select(:name).all).to include 'hoge' }
       end
 
       context 'done_job_cards is empty' do
