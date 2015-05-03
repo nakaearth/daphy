@@ -51,7 +51,7 @@ module Daphy
 
         it { expect(response).to have_http_status(:success) }
         # TODO: あとでここコメントアウト外す
-        # it { expect(JobFolder.select(:name).all).to include 'hoge' }
+        it { expect(JobFolder.select(:name).all).to include 'hoge' }
       end
 
       context 'done_job_cards is empty' do
