@@ -59,7 +59,7 @@ module Daphy
     end
 
     def job_folder_params
-      job_folder_params = [ 
+      job_folder_params = [
         :name,
         job_cards_attributes: [
           :ids
