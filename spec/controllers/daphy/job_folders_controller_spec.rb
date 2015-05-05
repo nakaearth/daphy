@@ -43,21 +43,20 @@ module Daphy
 
     describe "GET #create" do
       before do
-        post :create, controller: 'daphy/job_folders',  group_id: group.id, job_folder: { name: 'hoge', job_cards_attributes: { ids: ids } }
+        post :create, controller: 'daphy/job_folders',  group_id: group.id, job_folder: { name: 'hoge', job_cards_attributes: { job_cards_id: job_card_id } }
       end
 
       context 'done_job_cards is not empty' do
-        let(:ids) { done_list.collect(&:id).join(',') }
+        let(:job_card_id) { done_list[0].id }
 
-        it { expect(response).to have_http_status(:success) }
-        # TODO: あとでここコメントアウト外す
-        # it { expect(JobFolder.select(:name).all.size).to eq(1) }
+        it { expect(response).to have_http_status(:found) }
+        it { expect(JobFolder.select(:name).all.size).to eq(1) }
       end
 
       context 'done_job_cards is empty' do
-        let(:ids) { nil }
+        let(:job_card_id) { nil }
 
-        it { expect(response).to have_http_status(:success) }
+        it { expect(response).to have_http_status(:found) }
       end
     end
 

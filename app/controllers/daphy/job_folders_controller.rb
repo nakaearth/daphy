@@ -13,12 +13,10 @@ module Daphy
     end
 
     def create
-      @job_folder = current_group.job_folders.build
-      selected_job_cards = JobCard.selected_job_cards(job_folder_params)
-      @job_folder.job_cards =  selected_job_cards if selected_job_cards
+      @job_folder = current_group.job_folders.build(job_folder_params)
 
       if @job_folder.archive(job_folder_params)
-        redirect_to action: :index, flash: 'アーカイブしました'
+       redirect_to action: :index, flash: 'アーカイブしました'
       else
         render action: :new
       end
@@ -28,8 +26,7 @@ module Daphy
     end
 
     def update
-      job_cards = JobCards.selected_job_cards(job_folder_params)
-      @job_folder.job_cards.merge(job_cards)
+      @job_folder.build(job_folder_params)
       if @job_folder.archive(job_folder_params)
         redirect_to action: :index, flash: 'アーカイブしました'
       else
@@ -62,7 +59,7 @@ module Daphy
       job_folder_params = [
         :name,
         job_cards_attributes: [
-          :ids
+          :job_card_id
         ]
       ]
       params.require(:job_folder).permit(job_folder_params) if params[:job_folder]
