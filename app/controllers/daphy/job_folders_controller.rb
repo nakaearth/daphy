@@ -16,7 +16,7 @@ module Daphy
       @job_folder = current_group.job_folders.build(job_folder_params)
 
       if @job_folder.archive(job_folder_params)
-       redirect_to action: :index, flash: 'アーカイブしました'
+        redirect_to action: :index, flash: 'アーカイブしました'
       else
         render action: :new
       end
