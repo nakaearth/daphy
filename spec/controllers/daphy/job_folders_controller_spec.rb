@@ -51,6 +51,8 @@ module Daphy
 
         it { expect(response).to have_http_status(:found) }
         it { expect(JobFolder.select(:name).all.size).to eq(1) }
+        # it { expect(JobFolder.select(:name).all).to include('hoge') }
+        it { expect(JobFolder.select(:name).all[0].name).to eq('hoge') }
       end
 
       context 'done_job_cards is empty' do
