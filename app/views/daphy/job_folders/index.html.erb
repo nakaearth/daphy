@@ -7,7 +7,8 @@
 <div class='job_folder_list'>
   アーカイブ一覧
   <% @job_folders.each do |job_folder| %>
-    <div class='job_folder job_status('Done')'>
+    <div class='job_folder job_status_Done'>
+      <%= render partial: 'job_folder_menu', locals: { job_folder: job_folder } %>
       <%= job_folder.name %>
     </div>
   <% end %>

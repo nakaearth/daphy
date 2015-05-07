@@ -8,6 +8,9 @@ module Daphy
       @job_folders = @group.job_folders
     end
 
+    def show
+    end
+
     def new
       @job_folder = current_group.job_folders.build
     end
