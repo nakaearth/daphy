@@ -6,11 +6,9 @@
 </menu>
 <div class='job_folder_list'>
   アーカイブ一覧
-  <%= @job_folders.each do |job_folder| %>
-    <div class='job_folder'>
-      <div class='job job_status('Done')'>
-        <%= job_folder.name %>
-      </div>
+  <% @job_folders.each do |job_folder| %>
+    <div class='job_folder job_status('Done')'>
+      <%= job_folder.name %>
     </div>
   <% end %>
 </div>
