@@ -100,11 +100,6 @@ module Daphy
       @job_card = JobCard.find(Base64.decode64(params[:encoded_id]))
     end
 
-    # def set_groups
-    #   @groups = current_user.my_groups
-    #   @group_id = params[:group_id].presence || current_user.my_groups[0].id
-    # end
-
     def job_params
       params.require(:job_card).permit(:title, :description, :point) if params[:job_card]
     end

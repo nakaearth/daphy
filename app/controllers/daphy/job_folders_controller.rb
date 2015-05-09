@@ -55,7 +55,8 @@ module Daphy
     end
 
     def set_job_folder
-      @job_folder = JobFolder.find(params[:id])
+      binding.pry
+      @job_folder = JobFolder.find(Base64.decode64(params[:encoded_id]))
     end
 
     def job_folder_params

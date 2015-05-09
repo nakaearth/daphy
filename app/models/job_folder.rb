@@ -6,4 +6,12 @@ class JobFolder < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 50 }
 
   alias_method :archive, :save
+
+  def to_key
+    [Base64.encode64(id.to_s)]
+  end
+
+  def to_param
+    [Base64.encode64(id.to_s)]
+  end
 end
