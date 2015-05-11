@@ -1,1 +1,10 @@
-<h1>Daphy::JobFolder#show</h1>
+<div class="job_folder_detail">
+  <%= @job_folder.name %><br/>
+  <% @job_folder.job_cards do |job_card| %>
+    <div class="job_detail job_status_<%= @job_card.type %>">
+      <%= image_tag(@job_card.user.image_url) %><br/>
+      <%= job_card.title %><br/>
+      <%= job_card.description %>
+    </div>
+  <% end %>
+</div>
