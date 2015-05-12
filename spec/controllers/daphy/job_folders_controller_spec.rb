@@ -17,13 +17,13 @@ module Daphy
 
     describe "GET #new" do
       it "returns http success" do
-        get :new, controller: 'daphy/job_folders', group_id: group.id
+        get :new, controller: 'daphy/job_folders', group_id: Base64.encode64(group.id.to_s)
         expect(response).to have_http_status(:success)
       end
 
       context 'done job_card is not empty' do
         it 'job_cards is not nil' do
-          get :new, controller: 'daphy/job_folders', group_id: group.id
+          get :new, controller: 'daphy/job_folders', group_id: Base64.encode64(group.id.to_s)
           expect(assigns[:done_job_cards]).not_to be_nil
           expect(assigns[:done_job_cards].size).to eq(3)
         end
@@ -35,7 +35,7 @@ module Daphy
         it 'job_cards is empty' do
           allow(controller).to receive(:current_user) { user2 }
 
-          get :new, controller: 'daphy/job_folders', group_id: group.id
+          get :new, controller: 'daphy/job_folders', group_id: Base64.encode64(group.id.to_s)
           expect(assigns[:done_job_cards].size).to eq(0)
         end
       end
@@ -43,7 +43,7 @@ module Daphy
 
     describe "GET #create" do
       before do
-        post :create, controller: 'daphy/job_folders',  group_id: group.id, job_folder: { name: 'hoge', job_cards_attributes: { job_cards_id: job_card_id } }
+        post :create, controller: 'daphy/job_folders',  group_id: Base64.encode64(group.id.to_s), job_folder: { name: 'hoge', job_cards_attributes: { job_cards_id: job_card_id } }
       end
 
       context 'done_job_cards is not empty' do

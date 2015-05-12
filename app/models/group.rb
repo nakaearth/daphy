@@ -1,4 +1,6 @@
 class Group < ActiveRecord::Base
+  include IdEncryptable
+
   has_many :group_job_cards, class_name: :JobCard
   has_many :group_members, dependent: :destroy
   has_many :group_member_users, through: :group_members, source: :user

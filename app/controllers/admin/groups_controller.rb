@@ -52,7 +52,7 @@ module Admin
     private
 
     def set_group
-      @group = Group.find(params[:id])
+      @group = Group.find(Base64.decode64(params[:encoded_id]))
     end
 
     def group_params

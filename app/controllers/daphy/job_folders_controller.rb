@@ -47,7 +47,7 @@ module Daphy
     private
 
     def set_group
-      @group = Group.find(params[:group_id])
+      @group = Group.find(Base64.decode64(params[:group_id]))
     end
 
     def set_done_job_card
