@@ -1,3 +1,5 @@
 <div id="job_folder_menu" class="job_card_category_Done">
   <%= link_to '詳細', daphy_group_job_folder_path(current_group, job_folder) %>&nbsp;&nbsp;|
+  <%= link_to '編集', edit_daphy_group_job_folder_path(current_group, job_folder) %>&nbsp;&nbsp;|
+  <%= link_to '削除', daphy_group_job_folder_path(current_group, job_folder), method: :delete,  confirm: 'Are you sure?' %>&nbsp;&nbsp;|
 </div>

@@ -42,6 +42,7 @@ module Daphy
 
     def destroy
       @job_folder.destroy
+      redirect_to action: :index, flash: '削除しました'
     end
 
     private
