@@ -1,4 +1,6 @@
 class JobCard < ActiveRecord::Base
+  include IdEncryptable
+
   belongs_to :user, inverse_of: :my_job_cards
   belongs_to :group
   belongs_to :job_folder, inverse_of: :job_cards
@@ -21,14 +23,6 @@ class JobCard < ActiveRecord::Base
   scope :doings, -> { doing }
   scope :dones, -> { done }
   scope :trashes, -> { trashed }
-
-  def to_key
-    [Base64.encode64(id.to_s)]
-  end
-
-  def to_param
-    [Base64.encode64(id.to_s)]
-  end
 
   def schedule_day_overdue?
     Date.current > fixed_at
